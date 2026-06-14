@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-02-PLAN.md
-last_updated: "2026-06-14T21:45:06.058Z"
+stopped_at: Completed 02-03-PLAN.md
+last_updated: "2026-06-14T22:26:25.583Z"
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 7
-  completed_plans: 5
+  completed_plans: 6
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-06-14)
 ## Current Position
 
 Phase: 02 (shared-components-card-destinations-seo) — EXECUTING
-Plan: 3 of 4
+Plan: 4 of 4
 
 ## Performance Metrics
 
@@ -51,6 +51,7 @@ Plan: 3 of 4
 | Phase 01 P03 | 4 | 2 tasks | 6 files |
 | Phase 02 P01 | 17 | 2 tasks | 13 files |
 | Phase 02 P02 | 14 | 2 tasks | 5 files |
+| Phase 02 P03 | 17 | 2 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -74,6 +75,7 @@ Recent decisions affecting current work:
 - [Phase 02]: Site chrome (TopNav+Footer) mounted in +layout.svelte; all internal hrefs base-safe, no leading-slash
 - [Phase 02]: WATCH-02 facade: watch page mounts ZERO live iframes until play-click (0 of 56 prerendered HTML contain <iframe>); replaces v4's eager iframe
 - [Phase 02]: VideoObject JSON-LD description falls back to title on EMPTY string (|| not ??) so descriptionless videos still emit valid SEO
+- [Phase 02]: Browse surfaces (/work, /work/[category]×8 via entries(), /pbs-american-portrait) ported from v4 onto v5 VideoCard; each emits an absolute production-host rel=canonical (SEO-01 browse surfaces)
 
 ### Pending Todos
 
@@ -91,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T21:42:50.680Z
-Stopped at: Completed 02-02-PLAN.md
+Last session: 2026-06-14T22:22:47.612Z
+Stopped at: Completed 02-03-PLAN.md
 Resume file: None

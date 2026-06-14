@@ -55,9 +55,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Browse & Flagship
 
-- [ ] **BRWS-01**: `/work` shows all videos in a browsable grid
-- [ ] **BRWS-02**: `/work/[category]` shows a category-filtered grid and prerenders for all 8 categories
-- [ ] **PBS-01**: A dedicated PBS American Portrait landing page presents the 18 PBS videos with intro copy and a link to the PBS collection
+- [x] **BRWS-01**: `/work` shows all videos in a browsable grid
+- [x] **BRWS-02**: `/work/[category]` shows a category-filtered grid and prerenders for all 8 categories
+- [x] **PBS-01**: A dedicated PBS American Portrait landing page presents the 18 PBS videos with intro copy and a link to the PBS collection
 
 ### Static Pages
 
@@ -126,13 +126,13 @@ Which phases cover which requirements. Populated during roadmap creation.
 | WATCH-02 | Phase 2 | Complete |
 | WATCH-03 | Phase 2 | Complete |
 | WATCH-04 | Phase 2 | Complete |
-| BRWS-01 | Phase 2 | Pending |
-| BRWS-02 | Phase 2 | Pending |
-| PBS-01 | Phase 2 | Pending |
+| BRWS-01 | Phase 2 | Complete |
+| BRWS-02 | Phase 2 | Complete |
+| PBS-01 | Phase 2 | Complete |
 | PAGE-01 | Phase 2 | Pending |
 | PAGE-02 | Phase 2 | Pending |
 | PAGE-03 | Phase 2 | Pending |
-| SEO-01 | Phase 2 | Pending |
+| SEO-01 | Phase 2 | In Progress (browse surfaces done; about/press/contact + OG in 02-04) |
 | SEO-02 | Phase 2 | Complete |
 | SEO-03 | Phase 2 | Pending |
 | HOME-01 | Phase 3 | Pending |
