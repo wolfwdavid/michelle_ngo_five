@@ -2,10 +2,10 @@
 phase: 02-shared-components-card-destinations-seo
 plan: 04
 type: execute
-wave: 2
-depends_on: [01]
+wave: 3
+depends_on: [01, 02, 03]
 autonomous: true
-requirements: [PAGE-01, PAGE-02, PAGE-03, SEO-01, SEO-03]
+requirements: [PAGE-01, PAGE-02, PAGE-03, SEO-01, SEO-02, SEO-03]
 files_modified:
   - src/routes/about/+page.svelte
   - src/routes/about/page.test.ts
@@ -23,7 +23,7 @@ must_haves:
     - "/about presents Michelle's approved bio, a ContactBlock, and emits Person JSON-LD"
     - "/press lists broadcast credits grouped by network (HBO, PBS, ABC News, Amazon News, etc.), each row linking to its /watch/[id]"
     - "/contact presents the shared ContactBlock (email mynogo@gmail.com, phone, Vimeo/socials) — same component as about + footer"
-    - "Every static page emits a title, meta description, and a canonical URL; the sitewide OG/Twitter card is inherited from the layout"
+    - "about, press, and contact each emit a title, meta description, and a canonical URL; the sitewide OG/Twitter card is inherited from the layout"
     - "A prerendered /sitemap.xml enumerates home + /work + 8 categories + 56 watch + about/press/contact (70 URLs)"
   artifacts:
     - path: "src/routes/about/+page.svelte"
@@ -48,13 +48,14 @@ must_haves:
       to: "$lib/data videos + categories"
       via: "enumerates all watch + category URLs"
       pattern: "getCategoriesInDisplayOrder"
+  scope_note: "14 files of mostly verbatim ports. If execution quality degrades (context >50%), this plan MAY be split into 04a (about/press/contact + canonicals) and 04b (sitemap)."
 ---
 
 <objective>
-Port v4's static pages — `/about` (approved bio + Person JSON-LD), `/press` (network-grouped broadcast credits), `/contact` (shared ContactBlock) — and the prerendered `/sitemap.xml` (70 URLs), then make per-page SEO consistent: every page emits a title, meta description, and a canonical URL (SEO-01), with the sitewide OG/Twitter card inherited from the Plan-02-01 layout.
+Port v4's static pages — `/about` (approved bio + Person JSON-LD), `/press` (network-grouped broadcast credits), `/contact` (shared ContactBlock) — and the prerendered `/sitemap.xml` (70 URLs), then close per-page SEO for the static pages: about/press/contact each emit a title, meta description, and a canonical URL (SEO-01), with the sitewide OG/Twitter card inherited from the Plan-02-01 layout. The Person JSON-LD on /about co-covers SEO-02 with the VideoObject JSON-LD from Plan 02-02.
 
-Purpose: These are the remaining nav/footer destinations and the search-engine surface. They are a near-verbatim port; the only adaptation is wiring to v5's existing ContactBlock + data barrel and adding a canonical link to any page missing one.
-Output: about/press/contact pages (+ press helper), the sitemap server route, and per-page canonical coverage — all with passing tests.
+Purpose: These are the remaining nav/footer destinations and the search-engine surface. They are a near-verbatim port; the only adaptation is wiring to v5's existing ContactBlock + data barrel and adding a canonical link to about/press/contact. This plan runs in Wave 3 — AFTER Plan 02-02 (56 watch routes) and Plan 02-03 (8 category routes) — because the sitemap's 70-URL build check requires those destinations to already exist.
+Output: about/press/contact pages (+ press helper), the sitemap server route, and per-page canonical coverage for the static pages — all with passing tests.
 </objective>
 
 <execution_context>
@@ -67,6 +68,8 @@ Output: about/press/contact pages (+ press helper), the sitemap server route, an
 @.planning/research/ARCHITECTURE.md
 @.planning/research/PITFALLS.md
 @.planning/phases/02-shared-components-card-destinations-seo/02-01-shared-components-and-chrome-PLAN.md
+@.planning/phases/02-shared-components-card-destinations-seo/02-02-watch-pages-facade-jsonld-PLAN.md
+@.planning/phases/02-shared-components-card-destinations-seo/02-03-browse-and-pbs-PLAN.md
 
 <port_source>
 Port VERBATIM (adapt only imports to v5 paths) FROM:
@@ -90,8 +93,17 @@ Sitewide head already in +layout.svelte (Plan 02-01): og:site_name, og:type, og:
   (https://michellengo.net{base}/og-image.jpg), twitter:card, twitter:image, favicons, noindex.
   Per-page <svelte:head> overrides title + meta description and ADDS canonical.
 
+Canonical ownership (no cross-plan writes):
+  - This plan (02-04) owns canonicals for /about, /press, /contact ONLY.
+  - Plan 02-03 owns canonicals for /work, /work/[category] (×8), /pbs-american-portrait.
+  - Plan 02-02 owns the /watch/[id] canonical.
+  Convention (shared across all three plans): absolute production host, NOT base-relative
+  (Pitfall 11), e.g. `<link rel="canonical" href="https://michellengo.net/about/" />`.
+
 Sitemap is its own +server.ts with `export const prerender = true;` → emits build/sitemap.xml.
   Absolute production host (https://michellengo.net/...); 6 static + 8 category + 56 watch = 70.
+  The 70-URL build check requires the 56 watch routes (Plan 02-02) and 8 category routes
+  (Plan 02-03) to already exist — hence this plan is Wave 3 (depends_on [01,02,03]).
 Base-path invariant: internal page hrefs via `${base}`.
 </interfaces>
 </context>
@@ -108,7 +120,7 @@ Base-path invariant: internal page hrefs via `${base}`.
     - src/lib/components/ContactBlock.svelte (Plan 02-01 — confirm the sameAs URL literals)
   </read_first>
   <action>
-    /about: copy +page.svelte VERBATIM — h1 "About", the approved first-person bio paragraph (copy byte-for-byte, do NOT rewrite), and `<ContactBlock />`. Keep the Person JSON-LD `{@html}` script in svelte:head (name, jobTitle, url https://michellengo.net/about/, sameAs = [IMDB_URL, LINKEDIN_URL, VIMEO_URL]). Confirm those three sameAs literals match v5's ContactBlock.svelte; if ContactBlock uses different literals, align the JSON-LD to ContactBlock (single source of truth). Keep title + meta description. Port page.test.ts.
+    /about: copy +page.svelte VERBATIM — h1 "About", the approved first-person bio paragraph (copy byte-for-byte, do NOT rewrite), and `<ContactBlock />`. Keep the Person JSON-LD `{@html}` script in svelte:head (name, jobTitle, url https://michellengo.net/about/, sameAs = [IMDB_URL, LINKEDIN_URL, VIMEO_URL]). This Person JSON-LD is the half of SEO-02 this plan co-covers (the other half is the VideoObject JSON-LD in Plan 02-02). Confirm those three sameAs literals match v5's ContactBlock.svelte; if ContactBlock uses different literals, align the JSON-LD to ContactBlock (single source of truth). Keep title + meta description. Port page.test.ts.
 
     /press: copy +page.ts (load = _pressCredits derives network groups from videos.json, uploader !== 'Michelle Ngo', PRESTIGE_ORDER), +page.svelte (h1 "Press"; per-network sections; each credit row is an inline `${base}/watch/${id}` link with the video title), title + meta description. Copy _pressCredits.ts + _pressCredits.test.ts VERBATIM. Port page.test.ts.
 
@@ -118,7 +130,7 @@ Base-path invariant: internal page hrefs via `${base}`.
   </action>
   <acceptance_criteria>
     - Pages exist: `test -f src/routes/about/+page.svelte && test -f src/routes/press/+page.svelte && test -f src/routes/contact/+page.svelte` (exit 0)
-    - About emits Person JSON-LD: `grep -q '"Person"' src/routes/about/+page.svelte && grep -q "sameAs" src/routes/about/+page.svelte` (exit 0)
+    - About emits Person JSON-LD (SEO-02 half): `grep -q '"Person"' src/routes/about/+page.svelte && grep -q "sameAs" src/routes/about/+page.svelte` (exit 0)
     - ContactBlock reused on about AND contact: `grep -q "ContactBlock" src/routes/about/+page.svelte && grep -q "ContactBlock" src/routes/contact/+page.svelte` (exit 0)
     - Press groups by network from data: `grep -q "PRESTIGE_ORDER" src/routes/press/_pressCredits.ts && grep -q '${base}/watch/' src/routes/press/+page.svelte` (exit 0)
     - Every static page has a title + description: `for p in about press contact; do grep -q "<title>" src/routes/$p/+page.svelte && grep -q 'name="description"' src/routes/$p/+page.svelte || exit 1; done` (exit 0)
@@ -128,22 +140,21 @@ Base-path invariant: internal page hrefs via `${base}`.
   <verify>
     <automated>pnpm exec vitest run src/routes/about/ src/routes/press/ src/routes/contact/</automated>
   </verify>
-  <done>about/press/contact ported; about emits Person JSON-LD whose sameAs mirrors ContactBlock; contact + about + footer all use the one ContactBlock (PAGE-03); each page has title + description; tests green.</done>
+  <done>about/press/contact ported; about emits Person JSON-LD (SEO-02 half) whose sameAs mirrors ContactBlock; contact + about + footer all use the one ContactBlock (PAGE-03); each page has title + description; tests green.</done>
 </task>
 
 <task type="auto">
-  <name>Task 2: Port /sitemap.xml (70 URLs) + add per-page canonical coverage (SEO-01)</name>
+  <name>Task 2: Port /sitemap.xml (70 URLs) + add canonical coverage for about/press/contact (SEO-01)</name>
   <read_first>
     - C:/Users/Mkaru/Documents/Hello_World/hugginface_profile/Websites/michelle_ngo_four/src/routes/sitemap.xml/+server.ts
     - src/routes/+layout.svelte (Plan 02-01 — the sitewide OG/Twitter head this builds on)
     - src/routes/about/+page.svelte, press/+page.svelte, contact/+page.svelte (Task 1 output — add canonicals here)
-    - src/routes/work/+page.svelte (Plan 02-03 — add canonical here too if missing)
   </read_first>
   <action>
     Sitemap: copy +server.ts VERBATIM into src/routes/sitemap.xml/+server.ts — `export const prerender = true;`, SITE='https://michellengo.net', the 6 STATIC_ROUTES (/, /work/, /pbs-american-portrait/, /press/, /about/, /contact/), 8 categories via getCategoriesInDisplayOrder()+categoryToSlug(), and 56 watch URLs from `videos`. Total 70 <url> blocks, absolute production host (Pitfall 11 — NOT base-relative).
     Write src/routes/sitemap.xml/server.test.ts asserting: GET() returns an XML body whose `<loc>` count is exactly 70 (6 + 8 + 56), includes a /watch/<id>/ for the first video id, includes all 8 category slugs, and includes /about/ /press/ /contact/. (If v4 shipped a sitemap test, port it instead and ensure the 70 count is asserted.)
 
-    Canonical coverage (SEO-01): every prerendered page needs a canonical URL. In each of about/press/contact/work +page.svelte svelte:head, ADD a `<link rel="canonical" href={`https://michellengo.net/<path>/`} />` (absolute production host). watch/[id] and work/[category] canonicals are handled in Plan 02-02 / can be added here if missing — for work/[category] add a canonical built from the category slug. Do NOT touch the layout's sitewide OG/Twitter (already correct). The sitewide og:image + twitter:card from the layout satisfy the OG/Twitter half of SEO-01 for every page; this task closes the canonical half.
+    Canonical coverage (SEO-01) — this plan owns ONLY the about/press/contact canonicals. In each of about/press/contact +page.svelte svelte:head, ADD a `<link rel="canonical" href={`https://michellengo.net/<path>/`} />` (absolute production host, Pitfall 11). Do NOT touch /work, /work/[category], or /pbs-american-portrait — those canonicals are owned by Plan 02-03 (no cross-plan writes). Do NOT touch the layout's sitewide OG/Twitter (already correct). The sitewide og:image + twitter:card from the layout satisfy the OG/Twitter half of SEO-01 for every page; this task closes the canonical half for the static pages.
     prettier --write all touched files.
   </action>
   <acceptance_criteria>
@@ -151,22 +162,22 @@ Base-path invariant: internal page hrefs via `${base}`.
     - Sitemap enumerates from data: `grep -q "getCategoriesInDisplayOrder" src/routes/sitemap.xml/+server.ts && grep -q "videos" src/routes/sitemap.xml/+server.ts` (exit 0)
     - Sitemap emitted by build with 70 URLs: `MSYS_NO_PATHCONV=1 BASE_PATH=/michelle_ngo_five pnpm build` exits 0 AND `test -f build/sitemap.xml` AND `grep -c '<loc>' build/sitemap.xml` == 70
     - Build emits exactly the destinations the sitemap lists: `find build/watch -name index.html | wc -l` == 56 AND `find build/work -mindepth 2 -name index.html | wc -l` == 8
-    - Canonical on every static page: `for p in about press contact work; do grep -q 'rel="canonical"' src/routes/$p/+page.svelte || exit 1; done` (exit 0)
+    - Canonical on each static page this plan owns: `for p in about press contact; do grep -q 'rel="canonical"' src/routes/$p/+page.svelte || exit 1; done` (exit 0)
     - Sitemap test passes: `pnpm exec vitest run src/routes/sitemap.xml/` exits 0
     - `pnpm check` 0 errors; full `pnpm test` green
   </acceptance_criteria>
   <verify>
     <automated>MSYS_NO_PATHCONV=1 BASE_PATH=/michelle_ngo_five pnpm build && test "$(grep -c '<loc>' build/sitemap.xml)" -eq 70 && pnpm exec vitest run src/routes/sitemap.xml/ && pnpm check</automated>
   </verify>
-  <done>/sitemap.xml prerenders with exactly 70 absolute-host URLs (6+8+56), the build emits all those destinations, and every page carries a title + description + canonical (SEO-01) on top of the layout's sitewide OG/Twitter card.</done>
+  <done>/sitemap.xml prerenders with exactly 70 absolute-host URLs (6+8+56), the build emits all those destinations (watch + category routes from Plans 02-02/02-03 already present), and about/press/contact each carry a title + description + canonical (SEO-01) on top of the layout's sitewide OG/Twitter card.</done>
 </task>
 
 </tasks>
 
 <verification>
 - `MSYS_NO_PATHCONV=1 BASE_PATH=/michelle_ngo_five pnpm build` exits 0; build/sitemap.xml has exactly 70 `<loc>` entries; build/about/index.html, build/press/index.html, build/contact/index.html exist.
-- About emits Person JSON-LD; about + contact + footer share one ContactBlock.
-- Each page has title + meta description + canonical; no leading-slash local hrefs in the static routes.
+- About emits Person JSON-LD (SEO-02 half); about + contact + footer share one ContactBlock.
+- about/press/contact each have title + meta description + canonical; no leading-slash local hrefs in the static routes. (work/work[category]/pbs canonicals are Plan 02-03; watch canonical is Plan 02-02.)
 - `pnpm check` 0 errors; `pnpm test` fully green.
 </verification>
 
@@ -174,10 +185,12 @@ Base-path invariant: internal page hrefs via `${base}`.
 - PAGE-01: /about presents the approved bio + contact links.
 - PAGE-02: /press lists network-grouped broadcast credits.
 - PAGE-03: a Contact surface (email/phone/socials) reused consistently across about/footer/contact via one ContactBlock.
-- SEO-01: every page has title + meta description + canonical + (layout-inherited) OG/Twitter card image.
+- SEO-01 (partial — static pages): about/press/contact each have title + meta description + canonical + (layout-inherited) OG/Twitter card image. (work/work[category]/pbs canonicals are Plan 02-03; watch canonical is Plan 02-02.)
+- SEO-02 (co-covered): /about emits Person JSON-LD (the watch pages' VideoObject JSON-LD in Plan 02-02 is the other half).
 - SEO-03: /sitemap.xml enumerates all 70 routes (home, work, 8 categories, 56 watch, static pages).
 </success_criteria>
 
 <output>
 After completion, create `.planning/phases/02-shared-components-card-destinations-seo/02-04-SUMMARY.md`.
 </output>
+</content>
