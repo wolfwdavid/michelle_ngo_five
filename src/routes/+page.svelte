@@ -22,8 +22,15 @@
   <p class="mt-6 max-w-xl text-sm text-neutral-400 sm:text-base">
     Filmmaker & producer based in New York City.
   </p>
+  <!--
+    rel="external" keeps this anchor base-prefixed (FND-02 proof) while telling
+    the strict prerender crawler NOT to follow it: the /work/ route lands in
+    Phase 3, so crawling it now would 404 the build. Drop rel="external" once
+    /work/ exists.
+  -->
   <a
     href={`${base}/work/`}
+    rel="external"
     class="mt-10 inline-block text-sm uppercase tracking-widest underline underline-offset-4 hover:no-underline"
   >
     View work →
