@@ -29,7 +29,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. A typed loader returns videos by id, by category, and categories in display order (count-descending), with a poster present for every video
   4. The site renders on a near-black canvas with the 8 OKLCH per-category accents and a thick high-contrast focus-visible ring, each verified AA on the dark background
   5. A shared reduced-motion utility exists and is the single gate all later motion reads from; a `.nojekyll` marker, `404.html` fallback, and a base-`''` production workflow with persisted CNAME are present
-**Plans**: TBD
+**Plans**: 3 plans
+- [ ] 01-01-scaffold-config-proven-deploy-PLAN.md — base-path-safe scaffold, configs, static assets, both deploy workflows; green staging + apex build
+- [ ] 01-02-data-layer-port-build-validation-PLAN.md — port the validated 56-video data layer + Zod build-time validation (bad data fails the build)
+- [ ] 01-03-design-tokens-motion-util-PLAN.md — dark canvas + 8 OKLCH accents + focus ring tokens, and the shared reduced-motion utility (FND-06)
 
 ### Phase 2: Shared Components, Card Destinations & SEO
 **Goal**: Port v4's shared leaf components and chrome and build every page a card or nav can link to — watch pages, browse grids, the PBS flagship, and the static About/Press/Contact pages — each with correct SEO and structured data, so the site is content-complete and the homepage in Phase 3 has real destinations to point at.
@@ -73,7 +76,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation, Data Reuse & Proven Deploy | 0/TBD | Not started | - |
+| 1. Foundation, Data Reuse & Proven Deploy | 0/3 | Not started | - |
 | 2. Shared Components, Card Destinations & SEO | 0/TBD | Not started | - |
 | 3. Rails Homepage & Cinematic Hero | 0/TBD | Not started | - |
 | 4. Hardening, Apex Cutover & Launch | 0/TBD | Not started | - |
