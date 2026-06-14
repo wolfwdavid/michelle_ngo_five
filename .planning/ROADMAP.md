@@ -44,7 +44,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. About (approved bio), Press (broadcast credits), and a Contact surface (mynogo@gmail.com, phone, Vimeo/socials) exist, with contact details reused consistently across about/footer/contact
   4. Every page emits a correct title, meta description, canonical URL, and OG/Twitter card; watch pages emit VideoObject JSON-LD and About emits Person JSON-LD
   5. A prerendered `sitemap.xml` enumerates all routes (home, work, 8 categories, 56 watch pages, static pages)
-**Plans**: TBD
+**Plans**: 4 plans (Wave 1: 02-01; Wave 2: 02-02, 02-03, 02-04 in parallel)
+- [ ] 02-01-shared-components-and-chrome-PLAN.md — port leaf components (CategoryTag/VideoCard/ContactBlock) + chrome (TopNav/MobileMenu/Footer), mount chrome in +layout (DSGN-04)
+- [ ] 02-02-watch-pages-facade-jsonld-PLAN.md — 56 /watch/[id] pages, click-to-load facade embed (WATCH-02 improvement), metadata, sibling rail, VideoObject JSON-LD
+- [ ] 02-03-browse-and-pbs-PLAN.md — /work (all 56) + /work/[category] (8 prerendered grids) + the PBS American Portrait flagship (18 videos)
+- [ ] 02-04-static-pages-seo-sitemap-PLAN.md — about (Person JSON-LD) + press + contact, per-page canonical/SEO, and the 70-URL prerendered sitemap.xml
 
 ### Phase 3: Rails Homepage & Cinematic Hero
 **Goal**: Build the signature experience — a full-bleed reel hero with motion-safe 3D/parallax leading into one accessible horizontal scroll-snap rail per category — composing the data API and `VideoCard` from earlier phases into the homepage. This is the only genuinely new architecture and concentrates the a11y/perf risk; it needs phase-level research before planning.
@@ -77,6 +81,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation, Data Reuse & Proven Deploy | 0/3 | Not started | - |
-| 2. Shared Components, Card Destinations & SEO | 0/TBD | Not started | - |
+| 2. Shared Components, Card Destinations & SEO | 0/4 | Not started | - |
 | 3. Rails Homepage & Cinematic Hero | 0/TBD | Not started | - |
 | 4. Hardening, Apex Cutover & Launch | 0/TBD | Not started | - |
