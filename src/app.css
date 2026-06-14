@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/*
+ * Phase 1 minimal placeholder theme. The full dark token system (8 OKLCH
+ * per-category accents + focus ring) lands in Plan 03, which OWNS and replaces
+ * this file. Keep this tiny so Plan 03 can overwrite cleanly.
+ */
+:root {
+  color-scheme: dark;
+}
+body {
+  background: oklch(0.16 0 0);
+  color: oklch(0.97 0 0);
+}
