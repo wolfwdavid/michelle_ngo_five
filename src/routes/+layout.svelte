@@ -1,11 +1,13 @@
 <!--
-  Phase 1 chrome: app.css import + base-path-safe favicon/OG head + noindex meta.
-  TopNav/Footer (Phase 2 leaf components) are intentionally omitted this phase.
+  Site chrome: app.css import + base-path-safe favicon/OG head + noindex meta.
+  Phase 2 (DSGN-04): TopNav above every route, Footer below the routed content.
   Every local asset href goes through `base` from $app/paths (FND-02).
 -->
 <script lang="ts">
   import '../app.css';
   import { base } from '$app/paths';
+  import TopNav from '$lib/components/TopNav.svelte';
+  import Footer from '$lib/components/Footer.svelte';
   let { children } = $props();
 </script>
 
@@ -33,4 +35,8 @@
   <meta name="twitter:image" content="https://michellengo.net{base}/og-image.jpg" />
 </svelte:head>
 
+<TopNav />
+
 {@render children()}
+
+<Footer />
