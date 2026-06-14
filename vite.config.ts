@@ -102,6 +102,7 @@ export default defineConfig({
           name: 'ui',
           include: [
             'src/lib/components/**/*.{test,spec}.{js,ts}',
+            'src/lib/state/**/*.{test,spec}.{js,ts}',
             'src/routes/**/*.{test,spec}.{js,ts}',
           ],
           environment: 'jsdom',
