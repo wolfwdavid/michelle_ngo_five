@@ -48,10 +48,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Watch Page
 
-- [ ] **WATCH-01**: Each video has a deep-linkable page at `/watch/[id]` that prerenders for all 56 videos
-- [ ] **WATCH-02**: The watch page embeds the correct Vimeo/YouTube player (lazy / click-to-load facade, never autoplay-with-sound)
-- [ ] **WATCH-03**: The watch page shows title, category (accent), uploader/year, and description
-- [ ] **WATCH-04**: The watch page shows a "more in this category" rail of sibling videos
+- [x] **WATCH-01**: Each video has a deep-linkable page at `/watch/[id]` that prerenders for all 56 videos
+- [x] **WATCH-02**: The watch page embeds the correct Vimeo/YouTube player (lazy / click-to-load facade, never autoplay-with-sound)
+- [x] **WATCH-03**: The watch page shows title, category (accent), uploader/year, and description
+- [x] **WATCH-04**: The watch page shows a "more in this category" rail of sibling videos
 
 ### Browse & Flagship
 
@@ -68,7 +68,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### SEO & Structured Data
 
 - [ ] **SEO-01**: Every page has a correct title, meta description, canonical URL, and Open Graph/Twitter card image
-- [ ] **SEO-02**: Watch pages emit VideoObject JSON-LD (name, description, thumbnailUrl, uploadDate, embedUrl) and About emits Person JSON-LD
+- [x] **SEO-02**: Watch pages emit VideoObject JSON-LD (name, description, thumbnailUrl, uploadDate, embedUrl) and About emits Person JSON-LD
 - [ ] **SEO-03**: A prerendered sitemap.xml enumerates all routes (home, work, 8 categories, 56 watch pages, static pages)
 
 ### Accessibility & Performance
@@ -122,10 +122,10 @@ Which phases cover which requirements. Populated during roadmap creation.
 | DSGN-02 | Phase 1 | Complete |
 | DSGN-03 | Phase 1 | Complete |
 | DSGN-04 | Phase 1 | Complete |
-| WATCH-01 | Phase 2 | Pending |
-| WATCH-02 | Phase 2 | Pending |
-| WATCH-03 | Phase 2 | Pending |
-| WATCH-04 | Phase 2 | Pending |
+| WATCH-01 | Phase 2 | Complete |
+| WATCH-02 | Phase 2 | Complete |
+| WATCH-03 | Phase 2 | Complete |
+| WATCH-04 | Phase 2 | Complete |
 | BRWS-01 | Phase 2 | Pending |
 | BRWS-02 | Phase 2 | Pending |
 | PBS-01 | Phase 2 | Pending |
@@ -133,7 +133,7 @@ Which phases cover which requirements. Populated during roadmap creation.
 | PAGE-02 | Phase 2 | Pending |
 | PAGE-03 | Phase 2 | Pending |
 | SEO-01 | Phase 2 | Pending |
-| SEO-02 | Phase 2 | Pending |
+| SEO-02 | Phase 2 | Complete |
 | SEO-03 | Phase 2 | Pending |
 | HOME-01 | Phase 3 | Pending |
 | HOME-02 | Phase 3 | Pending |

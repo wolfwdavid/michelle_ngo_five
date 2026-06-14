@@ -46,7 +46,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   5. A prerendered `sitemap.xml` enumerates all routes (home, work, 8 categories, 56 watch pages, static pages)
 **Plans**: 4 plans (Wave 1: 02-01; Wave 2: 02-02, 02-03, 02-04 in parallel)
 - [x] 02-01-shared-components-and-chrome-PLAN.md — port leaf components (CategoryTag/VideoCard/ContactBlock) + chrome (TopNav/MobileMenu/Footer), mount chrome in +layout (DSGN-04)
-- [ ] 02-02-watch-pages-facade-jsonld-PLAN.md — 56 /watch/[id] pages, click-to-load facade embed (WATCH-02 improvement), metadata, sibling rail, VideoObject JSON-LD
+- [x] 02-02-watch-pages-facade-jsonld-PLAN.md — 56 /watch/[id] pages, click-to-load facade embed (WATCH-02 improvement), metadata, sibling rail, VideoObject JSON-LD
 - [ ] 02-03-browse-and-pbs-PLAN.md — /work (all 56) + /work/[category] (8 prerendered grids) + the PBS American Portrait flagship (18 videos)
 - [ ] 02-04-static-pages-seo-sitemap-PLAN.md — about (Person JSON-LD) + press + contact, per-page canonical/SEO, and the 70-URL prerendered sitemap.xml
 
