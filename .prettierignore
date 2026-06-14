@@ -1,0 +1,11 @@
+.svelte-kit
+build
+node_modules
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+.planning
+_prep
+
+# Phase 2: data file owns its own format (avoid pre-commit reformat churn on small edits)
+src/lib/data/videos.json
