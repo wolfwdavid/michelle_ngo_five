@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. The site renders on a near-black canvas with the 8 OKLCH per-category accents and a thick high-contrast focus-visible ring, each verified AA on the dark background
   5. A shared reduced-motion utility exists and is the single gate all later motion reads from; a `.nojekyll` marker, `404.html` fallback, and a base-`''` production workflow with persisted CNAME are present
 **Plans**: 3 plans
-- [ ] 01-01-scaffold-config-proven-deploy-PLAN.md — base-path-safe scaffold, configs, static assets, both deploy workflows; green staging + apex build
+- [x] 01-01-scaffold-config-proven-deploy-PLAN.md — base-path-safe scaffold, configs, static assets, both deploy workflows; green staging + apex build
 - [ ] 01-02-data-layer-port-build-validation-PLAN.md — port the validated 56-video data layer + Zod build-time validation (bad data fails the build)
 - [ ] 01-03-design-tokens-motion-util-PLAN.md — dark canvas + 8 OKLCH accents + focus ring tokens, and the shared reduced-motion utility (FND-06)
 

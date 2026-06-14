@@ -9,11 +9,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Foundation & Deploy
 
-- [ ] **FND-01**: Project scaffolds as a static SvelteKit app (Svelte 5 + Tailwind v4 + adapter-static) that builds with `pnpm build` and prerenders all routes with no errors
-- [ ] **FND-02**: Site works under a GitHub Pages base path — every asset and internal link resolves correctly at `wolfwdavid.github.io/michelle_ngo_five/` (no hardcoded absolute URLs)
-- [ ] **FND-03**: A real push-to-main auto-deploys the site to the github.io staging URL via GitHub Actions
-- [ ] **FND-04**: A `404.html` SPA fallback and `.nojekyll` marker are present so deep links and static assets resolve on Pages
-- [ ] **FND-05**: A manual "production" workflow builds with base path `''` and a persisted `CNAME` for michellengo.net, ready for apex cutover
+- [x] **FND-01**: Project scaffolds as a static SvelteKit app (Svelte 5 + Tailwind v4 + adapter-static) that builds with `pnpm build` and prerenders all routes with no errors
+- [x] **FND-02**: Site works under a GitHub Pages base path — every asset and internal link resolves correctly at `wolfwdavid.github.io/michelle_ngo_five/` (no hardcoded absolute URLs)
+- [x] **FND-03**: A real push-to-main auto-deploys the site to the github.io staging URL via GitHub Actions
+- [x] **FND-04**: A `404.html` SPA fallback and `.nojekyll` marker are present so deep links and static assets resolve on Pages
+- [x] **FND-05**: A manual "production" workflow builds with base path `''` and a persisted `CNAME` for michellengo.net, ready for apex cutover
 - [ ] **FND-06**: A shared reduced-motion utility exists and all motion in the site is gated on it (built before any animated feature)
 
 ### Content Data Layer
@@ -108,11 +108,11 @@ Which phases cover which requirements. Populated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FND-01 | Phase 1 | Pending |
-| FND-02 | Phase 1 | Pending |
-| FND-03 | Phase 1 | Pending |
-| FND-04 | Phase 1 | Pending |
-| FND-05 | Phase 1 | Pending |
+| FND-01 | Phase 1 | Complete |
+| FND-02 | Phase 1 | Complete |
+| FND-03 | Phase 1 | Complete |
+| FND-04 | Phase 1 | Complete |
+| FND-05 | Phase 1 | Complete |
 | FND-06 | Phase 1 | Pending |
 | DATA-01 | Phase 1 | Pending |
 | DATA-02 | Phase 1 | Pending |
