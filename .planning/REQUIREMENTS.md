@@ -14,7 +14,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **FND-03**: A real push-to-main auto-deploys the site to the github.io staging URL via GitHub Actions
 - [x] **FND-04**: A `404.html` SPA fallback and `.nojekyll` marker are present so deep links and static assets resolve on Pages
 - [x] **FND-05**: A manual "production" workflow builds with base path `''` and a persisted `CNAME` for michellengo.net, ready for apex cutover
-- [ ] **FND-06**: A shared reduced-motion utility exists and all motion in the site is gated on it (built before any animated feature)
+- [x] **FND-06**: A shared reduced-motion utility exists and all motion in the site is gated on it (built before any animated feature)
 
 ### Content Data Layer
 
@@ -25,10 +25,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Design System
 
-- [ ] **DSGN-01**: A dark cinematic theme (near-black canvas) is applied site-wide
-- [ ] **DSGN-02**: The 8 OKLCH per-category accent colors are defined and each passes AA contrast on the dark background
-- [ ] **DSGN-03**: Focus-visible rings are clearly visible on the dark/over-video surfaces (keyboard users can always see focus)
-- [ ] **DSGN-04**: Typography, spacing, and chrome (top nav + footer) are consistent across all pages, with footer-mirrored nav
+- [x] **DSGN-01**: A dark cinematic theme (near-black canvas) is applied site-wide
+- [x] **DSGN-02**: The 8 OKLCH per-category accent colors are defined and each passes AA contrast on the dark background
+- [x] **DSGN-03**: Focus-visible rings are clearly visible on the dark/over-video surfaces (keyboard users can always see focus)
+- [x] **DSGN-04**: Typography, spacing, and chrome (top nav + footer) are consistent across all pages, with footer-mirrored nav
 
 ### Rails Homepage (signature)
 
@@ -113,15 +113,15 @@ Which phases cover which requirements. Populated during roadmap creation.
 | FND-03 | Phase 1 | Complete |
 | FND-04 | Phase 1 | Complete |
 | FND-05 | Phase 1 | Complete |
-| FND-06 | Phase 1 | Pending |
+| FND-06 | Phase 1 | Complete |
 | DATA-01 | Phase 1 | Complete |
 | DATA-02 | Phase 1 | Complete |
 | DATA-03 | Phase 1 | Complete |
 | DATA-04 | Phase 1 | Complete |
-| DSGN-01 | Phase 1 | Pending |
-| DSGN-02 | Phase 1 | Pending |
-| DSGN-03 | Phase 1 | Pending |
-| DSGN-04 | Phase 1 | Pending |
+| DSGN-01 | Phase 1 | Complete |
+| DSGN-02 | Phase 1 | Complete |
+| DSGN-03 | Phase 1 | Complete |
+| DSGN-04 | Phase 1 | Complete |
 | WATCH-01 | Phase 2 | Pending |
 | WATCH-02 | Phase 2 | Pending |
 | WATCH-03 | Phase 2 | Pending |

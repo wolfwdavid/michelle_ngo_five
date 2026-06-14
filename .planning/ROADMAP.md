@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 - [x] 01-01-scaffold-config-proven-deploy-PLAN.md — base-path-safe scaffold, configs, static assets, both deploy workflows; green staging + apex build
 - [x] 01-02-data-layer-port-build-validation-PLAN.md — port the validated 56-video data layer + Zod build-time validation (bad data fails the build)
-- [ ] 01-03-design-tokens-motion-util-PLAN.md — dark canvas + 8 OKLCH accents + focus ring tokens, and the shared reduced-motion utility (FND-06)
+- [x] 01-03-design-tokens-motion-util-PLAN.md — dark canvas + 8 OKLCH accents + focus ring tokens, and the shared reduced-motion utility (FND-06)
 
 ### Phase 2: Shared Components, Card Destinations & SEO
 **Goal**: Port v4's shared leaf components and chrome and build every page a card or nav can link to — watch pages, browse grids, the PBS flagship, and the static About/Press/Contact pages — each with correct SEO and structured data, so the site is content-complete and the homepage in Phase 3 has real destinations to point at.
