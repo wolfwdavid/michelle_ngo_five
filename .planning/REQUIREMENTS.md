@@ -61,15 +61,15 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Static Pages
 
-- [ ] **PAGE-01**: An About page presents Michelle's approved bio and contact links
-- [ ] **PAGE-02**: A Press page lists broadcast credits (HBO, PBS, ABC News, Amazon News, etc.)
-- [ ] **PAGE-03**: A Contact surface exposes email (mynogo@gmail.com), phone, and social/Vimeo links, reused consistently (about/footer/contact)
+- [x] **PAGE-01**: An About page presents Michelle's approved bio and contact links
+- [x] **PAGE-02**: A Press page lists broadcast credits (HBO, PBS, ABC News, Amazon News, etc.)
+- [x] **PAGE-03**: A Contact surface exposes email (mynogo@gmail.com), phone, and social/Vimeo links, reused consistently (about/footer/contact)
 
 ### SEO & Structured Data
 
-- [ ] **SEO-01**: Every page has a correct title, meta description, canonical URL, and Open Graph/Twitter card image
+- [x] **SEO-01**: Every page has a correct title, meta description, canonical URL, and Open Graph/Twitter card image
 - [x] **SEO-02**: Watch pages emit VideoObject JSON-LD (name, description, thumbnailUrl, uploadDate, embedUrl) and About emits Person JSON-LD
-- [ ] **SEO-03**: A prerendered sitemap.xml enumerates all routes (home, work, 8 categories, 56 watch pages, static pages)
+- [x] **SEO-03**: A prerendered sitemap.xml enumerates all routes (home, work, 8 categories, 56 watch pages, static pages)
 
 ### Accessibility & Performance
 
@@ -129,12 +129,12 @@ Which phases cover which requirements. Populated during roadmap creation.
 | BRWS-01 | Phase 2 | Complete |
 | BRWS-02 | Phase 2 | Complete |
 | PBS-01 | Phase 2 | Complete |
-| PAGE-01 | Phase 2 | Pending |
-| PAGE-02 | Phase 2 | Pending |
-| PAGE-03 | Phase 2 | Pending |
+| PAGE-01 | Phase 2 | Complete |
+| PAGE-02 | Phase 2 | Complete |
+| PAGE-03 | Phase 2 | Complete |
 | SEO-01 | Phase 2 | In Progress (browse surfaces done; about/press/contact + OG in 02-04) |
 | SEO-02 | Phase 2 | Complete |
-| SEO-03 | Phase 2 | Pending |
+| SEO-03 | Phase 2 | Complete |
 | HOME-01 | Phase 3 | Pending |
 | HOME-02 | Phase 3 | Pending |
 | HOME-03 | Phase 3 | Pending |

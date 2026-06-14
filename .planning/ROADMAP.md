@@ -48,7 +48,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] 02-01-shared-components-and-chrome-PLAN.md — port leaf components (CategoryTag/VideoCard/ContactBlock) + chrome (TopNav/MobileMenu/Footer), mount chrome in +layout (DSGN-04)
 - [x] 02-02-watch-pages-facade-jsonld-PLAN.md — 56 /watch/[id] pages, click-to-load facade embed (WATCH-02 improvement), metadata, sibling rail, VideoObject JSON-LD
 - [x] 02-03-browse-and-pbs-PLAN.md — /work (all 56) + /work/[category] (8 prerendered grids) + the PBS American Portrait flagship (18 videos)
-- [ ] 02-04-static-pages-seo-sitemap-PLAN.md — about (Person JSON-LD) + press + contact, per-page canonical/SEO, and the 70-URL prerendered sitemap.xml
+- [x] 02-04-static-pages-seo-sitemap-PLAN.md — about (Person JSON-LD) + press + contact, per-page canonical/SEO, and the 70-URL prerendered sitemap.xml
 
 ### Phase 3: Rails Homepage & Cinematic Hero
 **Goal**: Build the signature experience — a full-bleed reel hero with motion-safe 3D/parallax leading into one accessible horizontal scroll-snap rail per category — composing the data API and `VideoCard` from earlier phases into the homepage. This is the only genuinely new architecture and concentrates the a11y/perf risk; it needs phase-level research before planning.

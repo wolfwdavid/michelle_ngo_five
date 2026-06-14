@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-03-PLAN.md
-last_updated: "2026-06-14T22:26:25.583Z"
+stopped_at: Completed 02-04-PLAN.md
+last_updated: "2026-06-14T23:14:36.344Z"
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 7
-  completed_plans: 6
+  completed_plans: 7
 ---
 
 # Project State
@@ -52,6 +52,7 @@ Plan: 4 of 4
 | Phase 02 P01 | 17 | 2 tasks | 13 files |
 | Phase 02 P02 | 14 | 2 tasks | 5 files |
 | Phase 02 P03 | 17 | 2 tasks | 11 files |
+| Phase 02 P04 | 36 | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,8 @@ Recent decisions affecting current work:
 - [Phase 02]: WATCH-02 facade: watch page mounts ZERO live iframes until play-click (0 of 56 prerendered HTML contain <iframe>); replaces v4's eager iframe
 - [Phase 02]: VideoObject JSON-LD description falls back to title on EMPTY string (|| not ??) so descriptionless videos still emit valid SEO
 - [Phase 02]: Browse surfaces (/work, /work/[category]×8 via entries(), /pbs-american-portrait) ported from v4 onto v5 VideoCard; each emits an absolute production-host rel=canonical (SEO-01 browse surfaces)
+- [Phase 02]: Static pages (about/press/contact) ported from v4 onto v5 ContactBlock + dark tokens; about emits Person JSON-LD (SEO-02 half) mirroring ContactBlock sameAs literals
+- [Phase 02]: Prerendered /sitemap.xml emits 70 absolute-host URLs (6+8+56); scoped Wave-2 prerender tolerance removed and strict build re-verified exits 0
 
 ### Pending Todos
 
@@ -93,6 +96,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T22:22:47.612Z
-Stopped at: Completed 02-03-PLAN.md
+Last session: 2026-06-14T23:12:54.458Z
+Stopped at: Completed 02-04-PLAN.md
 Resume file: None
