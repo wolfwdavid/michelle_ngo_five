@@ -25,6 +25,9 @@ must_haves:
     - "An invalid record (bad category, missing required field, duplicate (source,id)) fails `pnpm build` with a row-pointing error, not the browser"
     - "The typed loader returns videos by id, by category, and categories in display order (count-descending, ties-alpha)"
     - "Every video record carries a non-empty thumbnail URL referenced via a reserved 16:9 box downstream (no CLS)"
+  # NOTE: DATA-04 is PARTIALLY delivered in Phase 1 — only the DATA half (every record has a non-empty thumbnail URL).
+  #       CLS-safe rendering (reserved 16:9 box, width/height on img) is a Phase 3 card-component acceptance criterion,
+  #       NOT delivered or gated here.
   artifacts:
     - path: "src/lib/data/videos.json"
       provides: "56-video curated dataset (Vimeo + YouTube), 8 categories"
@@ -151,7 +154,7 @@ vite.config.ts validateVideosPlugin (port verbatim, runs in buildStart):
   <done>categories.ts, schema.ts, videos.ts, index.ts, videos.json (56 records, all canonical categories, all with thumbnails) ported verbatim; barrel exports + reel id intact.</done>
 </task>
 
-<task type="auto" tdd="true">
+<task type="tdd">
   <name>Task 2: Re-enable build-time validation (vite plugin) + port data tests</name>
   <files>vite.config.ts, vitest-setup-ui.ts, src/lib/data/categories.test.ts, src/lib/data/schema.test.ts, src/lib/data/videos.test.ts, src/lib/data/videos.json.test.ts</files>
   <read_first>
