@@ -18,10 +18,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Content Data Layer
 
-- [ ] **DATA-01**: All 56 videos (Vimeo + YouTube) and their 8 categories are ported from michelle_ngo_four into a typed dataset
-- [ ] **DATA-02**: The dataset is validated at build time (Zod schema + source/id uniqueness) so an invalid entry fails the build
-- [ ] **DATA-03**: A typed loader exposes videos by id, by category, and categories in display order (count-descending)
-- [ ] **DATA-04**: Poster/thumbnail images are present for every video and referenced without layout shift
+- [x] **DATA-01**: All 56 videos (Vimeo + YouTube) and their 8 categories are ported from michelle_ngo_four into a typed dataset
+- [x] **DATA-02**: The dataset is validated at build time (Zod schema + source/id uniqueness) so an invalid entry fails the build
+- [x] **DATA-03**: A typed loader exposes videos by id, by category, and categories in display order (count-descending)
+- [x] **DATA-04**: Poster/thumbnail images are present for every video and referenced without layout shift
 
 ### Design System
 
@@ -114,10 +114,10 @@ Which phases cover which requirements. Populated during roadmap creation.
 | FND-04 | Phase 1 | Complete |
 | FND-05 | Phase 1 | Complete |
 | FND-06 | Phase 1 | Pending |
-| DATA-01 | Phase 1 | Pending |
-| DATA-02 | Phase 1 | Pending |
-| DATA-03 | Phase 1 | Pending |
-| DATA-04 | Phase 1 | Pending |
+| DATA-01 | Phase 1 | Complete |
+| DATA-02 | Phase 1 | Complete |
+| DATA-03 | Phase 1 | Complete |
+| DATA-04 | Phase 1 | Complete |
 | DSGN-01 | Phase 1 | Pending |
 | DSGN-02 | Phase 1 | Pending |
 | DSGN-03 | Phase 1 | Pending |
