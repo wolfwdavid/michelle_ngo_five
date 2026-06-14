@@ -26,6 +26,8 @@
     name="description"
     content="Broadcast credits: HBO Max, HBO, PBS, ABC News, U2, Amazon News, Music Box, and more."
   />
+  <!-- Absolute, production-host canonical (NOT base-relative — Pitfall 11). -->
+  <link rel="canonical" href="https://michellengo.net/press/" />
 </svelte:head>
 
 <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
