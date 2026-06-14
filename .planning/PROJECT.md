@@ -12,7 +12,11 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ Static SvelteKit scaffold builds + prerenders cleanly, base-path-safe for both staging and apex — Phase 1
+- ✓ 56-video data layer ported with Zod build-time validation (bad record fails the build) — Phase 1
+- ✓ Dark cinematic design system: near-black canvas, 8 OKLCH category accents (AA), focus-visible ring — Phase 1
+- ✓ Shared reduced-motion utility (the single gate for all later motion) — Phase 1
+- ✓ Both GitHub Actions deploy workflows (staging subpath + manual apex/CNAME) — Phase 1
 
 ### Active
 
@@ -88,4 +92,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-14 after initialization*
+*Last updated: 2026-06-14 after Phase 1 (foundation, data, deploy) complete*
