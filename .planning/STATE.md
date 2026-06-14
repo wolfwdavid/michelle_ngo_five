@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-03-PLAN.md
-last_updated: "2026-06-14T18:45:58.572Z"
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-06-14T20:53:58.868Z"
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 7
+  completed_plans: 4
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** Visitors can immediately see and play Michelle's video work, browsing it by category in a fast, dark, YouTube-like interface — premium feel, fast on mobile.
-**Current focus:** Phase 01 — foundation-data-reuse-proven-deploy
+**Current focus:** Phase 02 — shared-components-card-destinations-seo
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
+Phase: 02 (shared-components-card-destinations-seo) — EXECUTING
+Plan: 2 of 4
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Plan: Not started
 | Phase 01 P01 | 6 | 3 tasks | 25 files |
 | Phase 01 P02 | 5 | 2 tasks | 12 files |
 | Phase 01 P03 | 4 | 2 tasks | 6 files |
+| Phase 02 P01 | 17 | 2 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -67,6 +68,9 @@ Recent decisions affecting current work:
 - [Phase 01]: Data layer ported verbatim from michelle_ngo_four; build-time Zod validation re-enabled (validateVideosPlugin) so bad data fails pnpm build with a row-pointing error
 - [Phase 01]: Reduced-motion gate is zero-dependency (no runed); hand-rolled matchMedia gate is the single source all motion reads (FND-06)
 - [Phase 01]: Dark token system made explicit as CSS custom props (canvas/ink/focus/scrim/type) extending the verbatim port; focus ring pairs light outline + dark halo for over-thumbnail contrast
+- [Phase 02]: Hardened MobileMenu a11y: role=dialog + focus trap + Escape + return-focus (DSGN-04 floor)
+- [Phase 02]: Scoped prerender handleHttpError over rel=external so chrome links keep SPA preload once Wave-2 routes ship
+- [Phase 02]: Site chrome (TopNav+Footer) mounted in +layout.svelte; all internal hrefs base-safe, no leading-slash
 
 ### Pending Todos
 
@@ -84,6 +88,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T18:39:04.963Z
-Stopped at: Completed 01-03-PLAN.md
+Last session: 2026-06-14T20:53:12.578Z
+Stopped at: Completed 02-01-PLAN.md
 Resume file: None
