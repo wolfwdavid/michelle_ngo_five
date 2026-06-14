@@ -1,14 +1,106 @@
 @import "tailwindcss";
 
 /*
- * Phase 1 minimal placeholder theme. The full dark token system (8 OKLCH
- * per-category accents + focus ring) lands in Plan 03, which OWNS and replaces
- * this file. Keep this tiny so Plan 03 can overwrite cleanly.
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Dark cinematic design system (DSGN-01..04).
+ *
+ * v5 is dark-only by design. This file is the single source of truth for the
+ * near-black canvas, the 8 per-category OKLCH accents, the deliberate focus
+ * ring, the text-over-thumbnail scrim convention, and base typography/spacing.
+ * Every later component inherits from here.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/*
+ * Per-category accent colors (DSGN-02). High-saturation OKLCH hues tuned to hit
+ * AA contrast on the near-black canvas (oklch(0.16 0 0)).
+ *
+ * Tailwind v4 contract: a CSS variable named --color-cat-NAME automatically
+ * generates utility classes text-cat-NAME, bg-cat-NAME, ring-cat-NAME, etc.
+ * The slug form (cat-pbs, cat-promos, ...) is decoupled from the canonical
+ * category names so renames stay localized to categoryAccent.ts.
+ *
+ * Color hierarchy (DSGN-04):
+ *   - PBS American Portrait    — most prominent, warmest red-orange (flagship)
+ *   - Promos & Trailers        — saturated amber/orange
+ *   - Branded Content          — saturated teal/cyan
+ *   - Documentary / Short Film — saturated lime/green
+ *   - Reel                     — saturated indigo/violet
+ *   - Personal / Tribute       — saturated magenta/pink
+ *   - Educational / Nonprofit  — saturated yellow
+ *   - Other                    — desaturated cool gray-blue (least prominent)
+ *
+ * AA on dark (DSGN-02): lightness ~0.72-0.78 against oklch(0.16 0 0) yields
+ * ~4.7-5.6:1 — clears AA for body text (>=4.5:1) and large/UI text (>=3:1).
+ * PBS is bumped to L 0.72 + C 0.21 for the highest visual weight; Other is
+ * L 0.78 + C 0.05 (intentionally quiet — semantically "uncategorized").
+ */
+@theme {
+  --color-cat-pbs: oklch(0.72 0.21 25);     /* flagship, warmest red-orange — AA on oklch(0.16 0 0) */
+  --color-cat-promos: oklch(0.78 0.18 60);  /* amber/orange — AA on dark */
+  --color-cat-branded: oklch(0.72 0.18 180);/* teal/cyan — AA on dark */
+  --color-cat-docshort: oklch(0.78 0.18 130);/* lime/green — AA on dark */
+  --color-cat-reel: oklch(0.78 0.18 280);   /* indigo/violet — AA on dark */
+  --color-cat-personal: oklch(0.78 0.18 330);/* magenta/pink — AA on dark */
+  --color-cat-edunon: oklch(0.78 0.18 90);  /* yellow — AA on dark */
+  --color-cat-other: oklch(0.78 0.05 250);  /* quiet near-gray — AA on dark */
+}
+
+/*
+ * Design tokens the sibling leaned on Tailwind utilities for — made explicit
+ * here so the dark system is self-describing and consistent across pages.
  */
 :root {
-  color-scheme: dark;
+  color-scheme: dark; /* DSGN-01: native dark UI (form controls, scrollbars) */
+
+  /* Canvas + ink (DSGN-01) */
+  --canvas: oklch(0.16 0 0);       /* near-black site background */
+  --ink: oklch(0.97 0 0);          /* primary text */
+  --ink-muted: oklch(0.72 0 0);    /* secondary text, still AA on canvas */
+
+  /* Focus ring (DSGN-03) — light, thick, with a dark companion shadow so it
+     stays visible on pure black AND over bright thumbnails. */
+  --focus-ring: oklch(0.97 0 0);
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+
+  /* Scrim convention (DSGN-04 / Pitfall 10) — gradient applied behind text that
+     sits over a thumbnail, so captions stay legible regardless of poster art. */
+  --scrim-from: rgba(0, 0, 0, 0.7);
+  --scrim-to: rgba(0, 0, 0, 0.4);
+  --scrim: linear-gradient(to top, var(--scrim-from), var(--scrim-to) 60%, transparent);
+
+  /* Base typography + spacing (DSGN-04) */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --leading-base: 1.55;
+  --space-rail-gap: 1rem;
 }
+
+/* Near-black canvas applied site-wide (DSGN-01) */
 body {
-  background: oklch(0.16 0 0);
-  color: oklch(0.97 0 0);
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: var(--leading-base);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/*
+ * Deliberate, thick, high-contrast focus ring (DSGN-03).
+ *
+ * :focus-visible only (never blanket `outline: none`) so keyboard users always
+ * get the ring while mouse clicks stay quiet. The box-shadow adds a dark halo
+ * around the light outline so it survives over bright poster thumbnails.
+ */
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  box-shadow: 0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-offset)) rgba(0, 0, 0, 0.85);
+  border-radius: 2px;
+}
+
+/* Reusable scrim utility for text-over-thumbnail components (DSGN-04 / Pitfall 10). */
+.scrim {
+  background: var(--scrim);
 }
