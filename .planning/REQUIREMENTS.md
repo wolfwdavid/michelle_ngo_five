@@ -41,10 +41,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Cinematic Hero
 
-- [ ] **HERO-01**: A full-bleed hero leads the homepage with Michelle's name/wordmark, a one-line tagline, and a PLAY REEL CTA
-- [ ] **HERO-02**: PLAY REEL opens the producer reel (Vimeo 264677021)
-- [ ] **HERO-03**: The hero has a tasteful 3D/depth/parallax treatment that is gated on reduced-motion and degrades gracefully (still premium with motion off)
-- [ ] **HERO-04**: The hero LCP image loads eagerly (not lazy) for fast first paint
+- [x] **HERO-01**: A full-bleed hero leads the homepage with Michelle's name/wordmark, a one-line tagline, and a PLAY REEL CTA
+- [x] **HERO-02**: PLAY REEL opens the producer reel (Vimeo 264677021)
+- [x] **HERO-03**: The hero has a tasteful 3D/depth/parallax treatment that is gated on reduced-motion and degrades gracefully (still premium with motion off)
+- [x] **HERO-04**: The hero LCP image loads eagerly (not lazy) for fast first paint
 
 ### Watch Page
 
@@ -141,10 +141,10 @@ Which phases cover which requirements. Populated during roadmap creation.
 | HOME-04 | Phase 3 | Complete |
 | HOME-05 | Phase 3 | Complete |
 | HOME-06 | Phase 3 | Complete |
-| HERO-01 | Phase 3 | Pending |
-| HERO-02 | Phase 3 | Pending |
-| HERO-03 | Phase 3 | Pending |
-| HERO-04 | Phase 3 | Pending |
+| HERO-01 | Phase 3 | Complete |
+| HERO-02 | Phase 3 | Complete |
+| HERO-03 | Phase 3 | Complete |
+| HERO-04 | Phase 3 | Complete |
 | QUAL-01 | Phase 4 | Pending |
 | QUAL-02 | Phase 4 | Pending |
 | QUAL-03 | Phase 4 | Pending |

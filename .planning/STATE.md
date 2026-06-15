@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-06-15T15:54:58.617Z"
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-06-15T18:44:42.088Z"
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 10
-  completed_plans: 8
+  completed_plans: 9
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-06-14)
 ## Current Position
 
 Phase: 03 (rails-homepage-cinematic-hero) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Plan: 2 of 3
 | Phase 02 P03 | 17 | 2 tasks | 11 files |
 | Phase 02 P04 | 36 | 2 tasks | 12 files |
 | Phase 03 P01 | 12min | 2 tasks | 2 files |
+| Phase 03 P02 | 20 | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -82,6 +83,8 @@ Recent decisions affecting current work:
 - [Phase 02]: Prerendered /sitemap.xml emits 70 absolute-host URLs (6+8+56); scoped Wave-2 prerender tolerance removed and strict build re-verified exits 0
 - [Phase 03]: CategoryRail scroller stays a plain <ul> (no tabindex=0) — focusable <li><a> children give natural Tab order; avoids Safari double tab-stop
 - [Phase 03]: Rail snap is proximity (not the forced variant) + clamp(220px,70vw,300px) peek; Prev/Next page by clientWidth*0.85, gate-aware behavior
+- [Phase 03]: PLAY REEL is a real base-safe <a> to /watch/264677021/ that preventDefaults into a focus-trapped ReelLightbox; the reel iframe mounts only inside {#if open} so home leaks zero iframes until intent
+- [Phase 03]: Hero motion double-gated (class:motion + @media no-preference + @supports scroll()); decorative pointer-tilt on a gated window listener (not a static-element handler) with a jsdom/SSR matchMedia guard
 
 ### Pending Todos
 
@@ -99,6 +102,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-15T15:52:07.843Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-06-15T18:43:12.922Z
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None
