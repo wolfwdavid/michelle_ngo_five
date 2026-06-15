@@ -53,12 +53,14 @@ describe('/about — PAGE-01 / composition', () => {
 
   it('container uses max-w-2xl editorial width', () => {
     component = mount(Page, { target: makeHost(), props: {} });
-    const main = host.querySelector('main');
-    expect(main?.className).toContain('max-w-2xl');
-    expect(main?.className).toContain('mx-auto');
-    expect(main?.className).toContain('px-4');
-    expect(main?.className).toContain('sm:px-6');
-    expect(main?.className).toContain('lg:px-8');
+    // The <main id="main"> landmark now lives in +layout.svelte; the page owns the
+    // editorial-width content container (a <section>).
+    const container = host.querySelector('section.max-w-2xl');
+    expect(container).not.toBeNull();
+    expect(container?.className).toContain('mx-auto');
+    expect(container?.className).toContain('px-4');
+    expect(container?.className).toContain('sm:px-6');
+    expect(container?.className).toContain('lg:px-8');
   });
 
   it('renders <ContactBlock /> with 5 channels in order (Email → Phone → IMDb → LinkedIn → Vimeo)', () => {

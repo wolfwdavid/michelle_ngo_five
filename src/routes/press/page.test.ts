@@ -76,7 +76,10 @@ describe('/press render — composition', () => {
   it('renders 13 <section> elements with h2 labels in prestige order', async () => {
     const data = await callLoad();
     component = mount(Page, { target: makeHost(), props: { data } });
-    const sections = Array.from(host.querySelectorAll('section'));
+    // The outer <section> is the page's content container (the <main id="main">
+    // landmark now lives in +layout.svelte); the 13 credit groups are the NESTED
+    // <section> elements, each labelled by its h2.
+    const sections = Array.from(host.querySelectorAll('section section'));
     expect(sections.length).toBe(13);
     const h2Texts = sections.map((s) => s.querySelector('h2')?.textContent?.trim() ?? '');
     expect(h2Texts).toEqual(EXPECTED_PRESTIGE_ORDER);
@@ -105,10 +108,12 @@ describe('/press render — composition', () => {
   it('container uses max-w-3xl editorial width', async () => {
     const data = await callLoad();
     component = mount(Page, { target: makeHost(), props: { data } });
-    const main = host.querySelector('main');
-    expect(main?.className).toContain('max-w-3xl');
-    expect(main?.className).toContain('px-4');
-    expect(main?.className).toContain('sm:px-6');
-    expect(main?.className).toContain('lg:px-8');
+    // The <main id="main"> landmark now lives in +layout.svelte; the page owns the
+    // editorial-width content container (a <section>).
+    const container = host.querySelector('section.max-w-3xl');
+    expect(container).not.toBeNull();
+    expect(container?.className).toContain('px-4');
+    expect(container?.className).toContain('sm:px-6');
+    expect(container?.className).toContain('lg:px-8');
   });
 });

@@ -40,9 +40,11 @@ describe('/contact — PAGE-03 composition', () => {
 
   it('container uses max-w-2xl editorial width', () => {
     component = mount(Page, { target: makeHost(), props: {} });
-    const main = host.querySelector('main');
-    expect(main?.className).toContain('max-w-2xl');
-    expect(main?.className).toContain('mx-auto');
+    // The <main id="main"> landmark now lives in +layout.svelte; the page owns the
+    // editorial-width content container (a <section>).
+    const container = host.querySelector('section.max-w-2xl');
+    expect(container).not.toBeNull();
+    expect(container?.className).toContain('mx-auto');
   });
 
   it('renders <ContactBlock /> with 5 channels in order (Email → Phone → IMDb → LinkedIn → Vimeo)', () => {
