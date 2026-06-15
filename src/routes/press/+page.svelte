@@ -30,7 +30,7 @@
   <link rel="canonical" href="https://michellengo.net/press/" />
 </svelte:head>
 
-<main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+<section class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
   <h1 class="text-3xl md:text-4xl font-bold uppercase tracking-wider">Press</h1>
 
   <div class="mt-10 md:mt-12 space-y-12 md:space-y-16">
@@ -53,4 +53,4 @@
       </section>
     {/each}
   </div>
-</main>
+</section>

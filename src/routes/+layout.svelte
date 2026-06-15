@@ -35,8 +35,38 @@
   <meta name="twitter:image" content="https://michellengo.net/og-image.jpg" />
 </svelte:head>
 
+<!--
+  Skip-to-content link (HOME-03 / QUAL-01): the FIRST focusable element on every
+  page. Visually hidden until focused, it lets keyboard users jump past the hero
+  + all rails to #main (provided by the home +page.svelte). Base-safe in-page
+  hash; the app.css :focus-visible ring renders it clearly on focus.
+-->
+<a href="#main" class="skip-link">Skip to content</a>
+
 <TopNav />
 
-{@render children()}
+<main id="main">
+  {@render children()}
+</main>
 
 <Footer />
+
+<style>
+  /* Off-screen until focused, then pinned top-left over the chrome. */
+  .skip-link {
+    position: absolute;
+    left: 0.5rem;
+    top: -3rem;
+    z-index: 100;
+    padding: 0.5rem 0.875rem;
+    border-radius: 0.5rem;
+    background: var(--canvas);
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 150ms ease;
+  }
+  .skip-link:focus {
+    top: 0.5rem;
+  }
+</style>

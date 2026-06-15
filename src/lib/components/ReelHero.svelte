@@ -289,7 +289,10 @@
   /* Pointer-tilt is only meaningful on a fine, hovering pointer. The JS handler
      is additionally guarded by `if (!motionOK) return`; this query keeps the
      inline transforms from sticking on touch where pointermove can fire oddly. */
-  @media not (hover: hover) and (pointer: fine) {
+  /* De Morgan of "not ((hover:hover) and (pointer:fine))": coarse/no-hover
+     pointers. Written as a comma list (CSS "or") so lightningcss can minify it
+     — `not … and …` is not valid media-query syntax (build-blocker). */
+  @media (hover: none), (pointer: coarse) {
     .hero-bg,
     .hero-fg {
       transform: none;

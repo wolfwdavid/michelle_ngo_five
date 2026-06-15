@@ -1,12 +1,24 @@
 <!--
-  Phase 1 placeholder home. A single dark hero with the wordmark + tagline and
-  ONE base-prefixed internal link — this proves base-path link handling
-  end-to-end on the cheapest possible page. The real YouTube-style category
-  rails + producer-reel hero land in Phase 3.
+  The signature home (HOME-01/02/05 + HERO-01): a full-bleed cinematic ReelHero
+  leading into one CategoryRail per category, in display order, from a
+  prerenderable load() (+page.ts builds `data.rails` at build time).
+
+  Invariants this page upholds:
+    - ZERO live iframes (HOME-06): cards are poster <img> (CategoryRail/VideoCard);
+      the reel iframe mounts only inside ReelHero's lightbox, on click. The
+      build-time guard scripts/assert-home-no-iframe.mjs enforces this.
+    - Skip-to-content: the layout owns the single <main id="main"> landmark and a
+      "Skip to content" link targeting it, so keyboard users jump straight to the
+      page content (HOME-03 / QUAL-01). The hero + rails render inside that main.
+    - SEO parity (SEO-01): absolute production-host canonical for `/`, matching
+      the convention the Phase-2 browse/watch pages use (NOT base-relative).
 -->
 <script lang="ts">
-  /* eslint-disable svelte/no-navigation-without-resolve */
-  import { base } from '$app/paths';
+  import type { PageData } from './$types';
+  import ReelHero from '$lib/components/ReelHero.svelte';
+  import CategoryRail from '$lib/components/CategoryRail.svelte';
+
+  let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>
@@ -15,24 +27,30 @@
     name="description"
     content="Michelle Ngo is a filmmaker and producer based in New York City."
   />
+  <!-- Absolute, production-host canonical for `/` (NOT base-relative — Pitfall 11). -->
+  <link rel="canonical" href="https://michellengo.net/" />
 </svelte:head>
 
-<main class="flex min-h-screen flex-col items-center justify-center px-6 text-center">
-  <h1 class="text-4xl font-bold uppercase tracking-[0.3em] sm:text-6xl">Michelle Ngo</h1>
-  <p class="mt-6 max-w-xl text-sm text-neutral-400 sm:text-base">
-    Filmmaker & producer based in New York City.
-  </p>
-  <!--
-    rel="external" keeps this anchor base-prefixed (FND-02 proof) while telling
-    the strict prerender crawler NOT to follow it: the /work/ route lands in
-    Phase 3, so crawling it now would 404 the build. Drop rel="external" once
-    /work/ exists.
-  -->
-  <a
-    href={`${base}/work/`}
-    rel="external"
-    class="mt-10 inline-block text-sm uppercase tracking-widest underline underline-offset-4 hover:no-underline"
-  >
-    View work →
-  </a>
-</main>
+<ReelHero />
+
+<div class="home-rails">
+  {#each data.rails as { category, videos } (category)}
+    <CategoryRail {category} {videos} />
+  {/each}
+</div>
+
+<style>
+  /*
+   * Vertical rhythm between rails (UI-SPEC "Rhythm & layout"): generous
+   * clamp(2.5rem, 6vh, 4rem) between shelves — the "large 48px+ sections" cue.
+   * The hero→first rail hand-off is slightly tighter (top padding) to invite the
+   * scroll, while inter-rail spacing stays generous.
+   */
+  .home-rails {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 6vh, 4rem);
+    padding-top: clamp(1.5rem, 4vh, 2.5rem);
+    padding-bottom: clamp(2.5rem, 6vh, 4rem);
+  }
+</style>
