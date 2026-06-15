@@ -17,6 +17,9 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 - ✓ Dark cinematic design system: near-black canvas, 8 OKLCH category accents (AA), focus-visible ring — Phase 1
 - ✓ Shared reduced-motion utility (the single gate for all later motion) — Phase 1
 - ✓ Both GitHub Actions deploy workflows (staging subpath + manual apex/CNAME) — Phase 1
+- ✓ Content-complete: 56 watch pages (click-to-load facade, VideoObject JSON-LD), /work + 8 category grids, PBS flagship, About/Press/Contact — Phase 2
+- ✓ Site chrome (TopNav + Footer with mirrored nav, accessible mobile menu) — Phase 2
+- ✓ SEO: per-page canonical/title/meta/OG, Person JSON-LD, 70-URL sitemap, strict prerendering — Phase 2
 
 ### Active
 
@@ -92,4 +95,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-14 after Phase 1 (foundation, data, deploy) complete*
+*Last updated: 2026-06-14 after Phase 2 (content-complete: watch/browse/pages/SEO)*
