@@ -60,7 +60,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. The home mounts zero live video iframes — cards are lazy-loaded poster images only — and clicking a card opens that video's watch page
   4. A full-bleed hero leads the page with Michelle's wordmark, a one-line tagline, and a PLAY REEL CTA that opens the producer reel (Vimeo 264677021), with the hero LCP image loading eagerly
   5. The hero's 3D/depth/parallax is gated on the reduced-motion utility and still looks premium with motion off (degrades gracefully, no jank/CLS)
-**Plans**: TBD
+**Plans**: 3 plans (Wave 1: 03-01, 03-02 in parallel; Wave 2: 03-03)
+- [ ] 03-01-category-rail-PLAN.md — accessible scroll-snap CategoryRail (peek, proximity snap, gated Prev/Next, zero iframes) wrapping VideoCard
+- [ ] 03-02-reel-hero-lightbox-PLAN.md — ReelHero (eager LCP poster, PLAY REEL, double-gated CSS-3D parallax) + focus-trapped ReelLightbox
+- [ ] 03-03-compose-home-PLAN.md — rewrite +page.svelte/+page.ts (hero + 8 rails), skip link, build-time zero-iframe guard
 
 ### Phase 4: Hardening, Apex Cutover & Launch
 **Goal**: Verify the content-complete site against explicit a11y and mobile-perf budgets on real Safari/iOS/Android devices, then perform the verify-then-flip apex CNAME cutover so the site goes live at michellengo.net over HTTPS.
@@ -82,5 +85,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation, Data Reuse & Proven Deploy | 0/3 | Not started | - |
 | 2. Shared Components, Card Destinations & SEO | 0/4 | Not started | - |
-| 3. Rails Homepage & Cinematic Hero | 0/TBD | Not started | - |
+| 3. Rails Homepage & Cinematic Hero | 0/3 | Not started | - |
 | 4. Hardening, Apex Cutover & Launch | 0/TBD | Not started | - |
