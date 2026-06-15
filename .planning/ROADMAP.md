@@ -63,7 +63,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans (Wave 1: 03-01, 03-02 in parallel; Wave 2: 03-03)
 - [x] 03-01-category-rail-PLAN.md — accessible scroll-snap CategoryRail (peek, proximity snap, gated Prev/Next, zero iframes) wrapping VideoCard
 - [x] 03-02-reel-hero-lightbox-PLAN.md — ReelHero (eager LCP poster, PLAY REEL, double-gated CSS-3D parallax) + focus-trapped ReelLightbox
-- [ ] 03-03-compose-home-PLAN.md — rewrite +page.svelte/+page.ts (hero + 8 rails), skip link, build-time zero-iframe guard
+- [x] 03-03-compose-home-PLAN.md — rewrite +page.svelte/+page.ts (hero + 8 rails), skip link, build-time zero-iframe guard
 
 ### Phase 4: Hardening, Apex Cutover & Launch
 **Goal**: Verify the content-complete site against explicit a11y and mobile-perf budgets on real Safari/iOS/Android devices, then perform the verify-then-flip apex CNAME cutover so the site goes live at michellengo.net over HTTPS.

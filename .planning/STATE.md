@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-02-PLAN.md
-last_updated: "2026-06-15T18:44:42.088Z"
+stopped_at: Completed 03-03-PLAN.md (Task 3 human-verify pending)
+last_updated: "2026-06-15T19:28:39.165Z"
 progress:
   total_phases: 4
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 10
-  completed_plans: 9
+  completed_plans: 10
 ---
 
 # Project State
@@ -55,6 +55,7 @@ Plan: 3 of 3
 | Phase 02 P04 | 36 | 2 tasks | 12 files |
 | Phase 03 P01 | 12min | 2 tasks | 2 files |
 | Phase 03 P02 | 20 | 3 tasks | 4 files |
+| Phase 03 P03 | 36 | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -85,6 +86,8 @@ Recent decisions affecting current work:
 - [Phase 03]: Rail snap is proximity (not the forced variant) + clamp(220px,70vw,300px) peek; Prev/Next page by clientWidth*0.85, gate-aware behavior
 - [Phase 03]: PLAY REEL is a real base-safe <a> to /watch/264677021/ that preventDefaults into a focus-trapped ReelLightbox; the reel iframe mounts only inside {#if open} so home leaks zero iframes until intent
 - [Phase 03]: Hero motion double-gated (class:motion + @media no-preference + @supports scroll()); decorative pointer-tilt on a gated window listener (not a static-element handler) with a jsdom/SSR matchMedia guard
+- [Phase 03]: Home: layout owns the single <main id=main> landmark + skip link; per-page <main> wrappers became <section> (strict prerender keeps skip-target on every route, no nested landmarks)
+- [Phase 03]: Zero-iframe home is CI-enforced: scripts/assert-home-no-iframe.mjs chained into pnpm build (8 rails render, build/index.html has 0 iframes)
 
 ### Pending Todos
 
@@ -102,6 +105,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-15T18:43:12.922Z
-Stopped at: Completed 03-02-PLAN.md
+Last session: 2026-06-15T19:27:48.868Z
+Stopped at: Completed 03-03-PLAN.md (Task 3 human-verify pending)
 Resume file: None
