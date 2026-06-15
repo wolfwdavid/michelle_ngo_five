@@ -61,7 +61,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. A full-bleed hero leads the page with Michelle's wordmark, a one-line tagline, and a PLAY REEL CTA that opens the producer reel (Vimeo 264677021), with the hero LCP image loading eagerly
   5. The hero's 3D/depth/parallax is gated on the reduced-motion utility and still looks premium with motion off (degrades gracefully, no jank/CLS)
 **Plans**: 3 plans (Wave 1: 03-01, 03-02 in parallel; Wave 2: 03-03)
-- [ ] 03-01-category-rail-PLAN.md — accessible scroll-snap CategoryRail (peek, proximity snap, gated Prev/Next, zero iframes) wrapping VideoCard
+- [x] 03-01-category-rail-PLAN.md — accessible scroll-snap CategoryRail (peek, proximity snap, gated Prev/Next, zero iframes) wrapping VideoCard
 - [ ] 03-02-reel-hero-lightbox-PLAN.md — ReelHero (eager LCP poster, PLAY REEL, double-gated CSS-3D parallax) + focus-trapped ReelLightbox
 - [ ] 03-03-compose-home-PLAN.md — rewrite +page.svelte/+page.ts (hero + 8 rails), skip link, build-time zero-iframe guard
 

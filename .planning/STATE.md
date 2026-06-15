@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-04-PLAN.md
-last_updated: "2026-06-15T00:10:16.940Z"
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-06-15T15:54:58.617Z"
 progress:
   total_phases: 4
   completed_phases: 2
-  total_plans: 7
-  completed_plans: 7
+  total_plans: 10
+  completed_plans: 8
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** Visitors can immediately see and play Michelle's video work, browsing it by category in a fast, dark, YouTube-like interface — premium feel, fast on mobile.
-**Current focus:** Phase 02 — shared-components-card-destinations-seo
+**Current focus:** Phase 03 — rails-homepage-cinematic-hero
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
+Phase: 03 (rails-homepage-cinematic-hero) — EXECUTING
+Plan: 2 of 3
 
 ## Performance Metrics
 
@@ -53,6 +53,7 @@ Plan: Not started
 | Phase 02 P02 | 14 | 2 tasks | 5 files |
 | Phase 02 P03 | 17 | 2 tasks | 11 files |
 | Phase 02 P04 | 36 | 2 tasks | 12 files |
+| Phase 03 P01 | 12min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -79,6 +80,8 @@ Recent decisions affecting current work:
 - [Phase 02]: Browse surfaces (/work, /work/[category]×8 via entries(), /pbs-american-portrait) ported from v4 onto v5 VideoCard; each emits an absolute production-host rel=canonical (SEO-01 browse surfaces)
 - [Phase 02]: Static pages (about/press/contact) ported from v4 onto v5 ContactBlock + dark tokens; about emits Person JSON-LD (SEO-02 half) mirroring ContactBlock sameAs literals
 - [Phase 02]: Prerendered /sitemap.xml emits 70 absolute-host URLs (6+8+56); scoped Wave-2 prerender tolerance removed and strict build re-verified exits 0
+- [Phase 03]: CategoryRail scroller stays a plain <ul> (no tabindex=0) — focusable <li><a> children give natural Tab order; avoids Safari double tab-stop
+- [Phase 03]: Rail snap is proximity (not the forced variant) + clamp(220px,70vw,300px) peek; Prev/Next page by clientWidth*0.85, gate-aware behavior
 
 ### Pending Todos
 
@@ -96,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T23:12:54.458Z
-Stopped at: Completed 02-04-PLAN.md
+Last session: 2026-06-15T15:52:07.843Z
+Stopped at: Completed 03-01-PLAN.md
 Resume file: None

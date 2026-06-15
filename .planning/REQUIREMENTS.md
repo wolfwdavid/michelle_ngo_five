@@ -32,12 +32,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Rails Homepage (signature)
 
-- [ ] **HOME-01**: The homepage renders one horizontal scrolling rail per category, in display order, each labeled with its accent color
-- [ ] **HOME-02**: Each rail shows video cards (poster + title + meta) and scrolls horizontally with scroll-snap and a visible "peek" of the next card
-- [ ] **HOME-03**: Rails are operable by keyboard (arrow/Home/End, Tab exits — no focus trap) and expose Prev/Next controls on pointer devices
-- [ ] **HOME-04**: Rail cards are screen-reader friendly (labeled region, list semantics) and offscreen cards do not strand focus
-- [ ] **HOME-05**: Clicking a card opens that video's watch page
-- [ ] **HOME-06**: Home uses zero live video iframes — cards are lazy-loaded poster images only
+- [x] **HOME-01**: The homepage renders one horizontal scrolling rail per category, in display order, each labeled with its accent color
+- [x] **HOME-02**: Each rail shows video cards (poster + title + meta) and scrolls horizontally with scroll-snap and a visible "peek" of the next card
+- [x] **HOME-03**: Rails are operable by keyboard (arrow/Home/End, Tab exits — no focus trap) and expose Prev/Next controls on pointer devices
+- [x] **HOME-04**: Rail cards are screen-reader friendly (labeled region, list semantics) and offscreen cards do not strand focus
+- [x] **HOME-05**: Clicking a card opens that video's watch page
+- [x] **HOME-06**: Home uses zero live video iframes — cards are lazy-loaded poster images only
 
 ### Cinematic Hero
 
@@ -135,12 +135,12 @@ Which phases cover which requirements. Populated during roadmap creation.
 | SEO-01 | Phase 2 | In Progress (browse surfaces done; about/press/contact + OG in 02-04) |
 | SEO-02 | Phase 2 | Complete |
 | SEO-03 | Phase 2 | Complete |
-| HOME-01 | Phase 3 | Pending |
-| HOME-02 | Phase 3 | Pending |
-| HOME-03 | Phase 3 | Pending |
-| HOME-04 | Phase 3 | Pending |
-| HOME-05 | Phase 3 | Pending |
-| HOME-06 | Phase 3 | Pending |
+| HOME-01 | Phase 3 | Complete |
+| HOME-02 | Phase 3 | Complete |
+| HOME-03 | Phase 3 | Complete |
+| HOME-04 | Phase 3 | Complete |
+| HOME-05 | Phase 3 | Complete |
+| HOME-06 | Phase 3 | Complete |
 | HERO-01 | Phase 3 | Pending |
 | HERO-02 | Phase 3 | Pending |
 | HERO-03 | Phase 3 | Pending |
