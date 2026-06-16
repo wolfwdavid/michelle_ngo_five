@@ -94,10 +94,13 @@ None — plan executed exactly as written for Tasks 1–2. (Task 3 is the planne
 
 ## Checkpoint Status
 
-**Task 3 (`checkpoint:human-action`) — NOT executed.** The DNS flip at the registrar and the repo
-Settings → Pages toggles cannot be performed by Claude (no registrar or Pages-UI access). The plan is
-**paused at this checkpoint**, not fully complete. The human follows `CUTOVER.md` end-to-end, then
-replies "live" to resume final apex HTTPS verification.
+**Task 3 (`checkpoint:human-action`) — DEFERRED by user decision (2026-06-16).** The DNS flip at the
+registrar and the repo Settings → Pages toggles cannot be performed by Claude (no registrar or Pages-UI
+access). The user has chosen to **keep the site live on the GitHub Pages URL
+(https://wolfwdavid.github.io/michelle_ngo_five/) for now and perform the DNS cutover later.** `michellengo.net`
+still points at the prior WordPress host (`192.0.78.172` / `192.0.78.249`) and is intentionally untouched.
+This checkpoint is not blocked or failed — it is a ready-to-execute future step. When ready, follow
+`CUTOVER.md` end-to-end, then reply "live" to resume final apex HTTPS verification.
 
 ## Verification Results
 
