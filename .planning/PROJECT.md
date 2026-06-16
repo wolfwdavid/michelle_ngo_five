@@ -21,6 +21,8 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 - ✓ Site chrome (TopNav + Footer with mirrored nav, accessible mobile menu) — Phase 2
 - ✓ SEO: per-page canonical/title/meta/OG, Person JSON-LD, 70-URL sitemap, strict prerendering — Phase 2
 - ✓ Signature YouTube-style home: cinematic hero (eager LCP, double-gated 3D/parallax, PLAY REEL lightbox) + 8 accent category rails (peek, keyboard/SR, Prev/Next, zero home iframes) — Phase 3 (human-approved)
+- ✓ Launch-readiness quality gates (QUAL-01..04): axe a11y (24/24, zero serious/critical), mobile Lighthouse (LCP 2.05s / CLS 0 / perf 98), responsive 375–1440 + mobile nav, reduced-motion audit; real-device iPhone+Android QA approved — Phase 4
+- ✓ Deploy hardened for launch: both workflows on current action majors, prerender-count CI guard (56+8), verified base-'' apex build, CUTOVER.md runbook — Phase 4 (apex DNS flip deferred by user; site live on GitHub Pages)
 
 ### Active
 
@@ -96,4 +98,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-15 after Phase 3 (signature rails homepage + cinematic hero, user-approved)*
+*Last updated: 2026-06-16 after Phase 4 (launch-readiness quality gates + deploy hardening; v1.0 milestone complete, live on GitHub Pages; apex DNS cutover deferred)*
