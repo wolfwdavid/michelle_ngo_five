@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-03-PLAN.md (Task 3 human-verify pending)
-last_updated: "2026-06-16T02:01:33.650Z"
+stopped_at: "Paused 04-01-PLAN.md at Task 3 (human-verify checkpoint: real iPhone+Android QA)"
+last_updated: "2026-06-16T17:22:08.404Z"
 progress:
   total_phases: 4
   completed_phases: 3
-  total_plans: 10
-  completed_plans: 10
+  total_plans: 12
+  completed_plans: 11
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** Visitors can immediately see and play Michelle's video work, browsing it by category in a fast, dark, YouTube-like interface — premium feel, fast on mobile.
-**Current focus:** Phase 03 — rails-homepage-cinematic-hero
+**Current focus:** Phase 04 — hardening-apex-cutover-launch
 
 ## Current Position
 
-Phase: 4
-Plan: Not started
+Phase: 04 (hardening-apex-cutover-launch) — EXECUTING
+Plan: 1 of 2
 
 ## Performance Metrics
 
@@ -56,6 +56,7 @@ Plan: Not started
 | Phase 03 P01 | 12min | 2 tasks | 2 files |
 | Phase 03 P02 | 20 | 3 tasks | 4 files |
 | Phase 03 P03 | 36 | 2 tasks | 10 files |
+| Phase 04 P01 | 92 | 2 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -88,6 +89,11 @@ Recent decisions affecting current work:
 - [Phase 03]: Hero motion double-gated (class:motion + @media no-preference + @supports scroll()); decorative pointer-tilt on a gated window listener (not a static-element handler) with a jsdom/SSR matchMedia guard
 - [Phase 03]: Home: layout owns the single <main id=main> landmark + skip link; per-page <main> wrappers became <section> (strict prerender keeps skip-target on every route, no nested landmarks)
 - [Phase 03]: Zero-iframe home is CI-enforced: scripts/assert-home-no-iframe.mjs chained into pnpm build (8 rails render, build/index.html has 0 iframes)
+- [Phase 04]: [Phase 04]: axe gates serious/critical only (QUAL-01 floor); moderate fixed at source, minor advisory — no blanket toEqual([])
+- [Phase 04]: [Phase 04]: text-neutral-500 -> text-neutral-400 site-wide for AA on the near-black canvas (was 4.1:1, now ~7.5:1)
+- [Phase 04]: [Phase 04]: TopNav inline nav reveals at lg not sm (8 long category names overflowed the page at 768px); hamburger drives <lg
+- [Phase 04]: [Phase 04]: MobileMenu returns focus to trigger synchronously on Escape (WebKit drops effect-cleanup .focus())
+- [Phase 04]: [Phase 04]: home mobile Lighthouse passes LCP 2.05s / CLS 0 / perf 98 (budgets LCP<=3000ms, CLS<=0.1)
 
 ### Pending Todos
 
@@ -105,6 +111,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-15T19:27:48.868Z
-Stopped at: Completed 03-03-PLAN.md (Task 3 human-verify pending)
+Last session: 2026-06-16T17:22:08.401Z
+Stopped at: Paused 04-01-PLAN.md at Task 3 (human-verify checkpoint: real iPhone+Android QA)
 Resume file: None

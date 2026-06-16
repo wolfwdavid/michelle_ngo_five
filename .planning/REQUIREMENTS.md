@@ -73,10 +73,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Accessibility & Performance
 
-- [ ] **QUAL-01**: Site passes an automated accessibility check (axe) with no serious violations on key pages
-- [ ] **QUAL-02**: Mobile Lighthouse performance is strong (good LCP; capped concurrent iframes; no significant CLS)
-- [ ] **QUAL-03**: Layout is responsive from small mobile to desktop, with a working mobile nav
-- [ ] **QUAL-04**: `prefers-reduced-motion` disables parallax/hover-preview/smooth-scroll animations everywhere
+- [x] **QUAL-01**: Site passes an automated accessibility check (axe) with no serious violations on key pages
+- [x] **QUAL-02**: Mobile Lighthouse performance is strong (good LCP; capped concurrent iframes; no significant CLS)
+- [x] **QUAL-03**: Layout is responsive from small mobile to desktop, with a working mobile nav
+- [x] **QUAL-04**: `prefers-reduced-motion` disables parallax/hover-preview/smooth-scroll animations everywhere
 
 ## v2 Requirements
 
@@ -145,10 +145,10 @@ Which phases cover which requirements. Populated during roadmap creation.
 | HERO-02 | Phase 3 | Complete |
 | HERO-03 | Phase 3 | Complete |
 | HERO-04 | Phase 3 | Complete |
-| QUAL-01 | Phase 4 | Pending |
-| QUAL-02 | Phase 4 | Pending |
-| QUAL-03 | Phase 4 | Pending |
-| QUAL-04 | Phase 4 | Pending |
+| QUAL-01 | Phase 4 | Complete |
+| QUAL-02 | Phase 4 | Complete |
+| QUAL-03 | Phase 4 | Complete |
+| QUAL-04 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 41 total
