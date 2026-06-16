@@ -76,7 +76,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. The production workflow builds with base path `''`, persists the CNAME, and the apex cutover serves michellengo.net live over verified HTTPS
 **Plans**: 2 plans (Wave 1: 04-01; Wave 2: 04-02)
 - [x] 04-01-quality-gates-PLAN.md — axe a11y scan + mobile Lighthouse LCP gate + responsive/mobile-nav + reduced-motion audit (QUAL-01..04), real-device human-verify
-- [ ] 04-02-deploy-hardening-apex-cutover-PLAN.md — bump deprecated actions, prerender-count CI guard, verified apex (base-'') build, CUTOVER.md runbook, human-action DNS flip
+- [x] 04-02-deploy-hardening-apex-cutover-PLAN.md — bump deprecated actions, prerender-count CI guard, verified apex (base-'') build, CUTOVER.md runbook, human-action DNS flip
 
 ## Progress
 
