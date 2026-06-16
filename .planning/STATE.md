@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: "Phase 04 automated work complete; two human checkpoints open — 04-01 real-device QA + 04-02 apex DNS flip"
+stopped_at: "Phase 04: 04-01 fully complete (real-device QA approved 2026-06-16); one checkpoint open — 04-02 apex DNS flip (CUTOVER.md)"
 last_updated: "2026-06-16T17:22:08.404Z"
 progress:
   total_phases: 4
@@ -112,5 +112,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-16T17:22:08.401Z
-Stopped at: Phase 04 automated work complete; two human checkpoints open — 04-01 real-device QA + 04-02 apex DNS flip (CUTOVER.md)
+Stopped at: Phase 04: 04-01 fully complete (real-device QA approved 2026-06-16); one checkpoint open — 04-02 apex DNS flip (CUTOVER.md)
 Resume file: None

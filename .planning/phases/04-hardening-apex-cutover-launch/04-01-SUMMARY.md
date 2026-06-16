@@ -74,7 +74,7 @@ completed: 2026-06-16
 - **Duration:** ~92 min
 - **Started:** 2026-06-16T15:47:38Z
 - **Completed:** 2026-06-16T17:19:53Z
-- **Tasks:** 2 of 3 complete (Task 3 is a real-device human-verify checkpoint — paused, not executed)
+- **Tasks:** 3 of 3 complete (Task 3 real-device human-verify checkpoint — APPROVED by human on 2026-06-16: iPhone Safari + Android Chrome passed rail momentum, keyboard/focus, mobile-nav, OS reduce-motion, and cellular hero LCP)
 - **Files modified:** 14 (5 created, 9 modified)
 
 ## Accomplishments
@@ -195,10 +195,10 @@ _Run via `pnpm build && pnpm exec lhci autorun` (1 run dumped to `.lighthouseci/
 ## Next Phase Readiness
 
 - All four automated gates are wired and green; ready to be promoted to a blocking CI step in Plan 04-02 (deploy hardening + apex cutover).
-- **PENDING — Task 3 real-device human-verify checkpoint (NOT executed):** Playwright's webkit is desktop WebKit, not iOS Safari, and DevTools emulation does not reproduce touch momentum/rubber-banding. A real iPhone (Safari) + Android (Chrome) must confirm rail momentum-scroll, keyboard/focus ring on dark, mobile-nav, OS reduce-motion disabling hero+rail motion, and fast hero LCP on cellular against the live staging site.
+- **APPROVED — Task 3 real-device human-verify checkpoint (2026-06-16):** Human confirmed on a real iPhone (Safari) + Android (Chrome) against the live staging site: rail momentum-scroll, keyboard/focus ring on dark, mobile-nav open/close, OS reduce-motion disabling hero+rail motion, and fast hero LCP on cellular all pass.
 
 ---
 *Phase: 04-hardening-apex-cutover-launch*
 *Plan: 01 — quality-gates*
-*Status: PAUSED at Task 3 (human-verify checkpoint)*
+*Status: COMPLETE — all 3 tasks done (Task 3 human-verify APPROVED 2026-06-16)*
 *Completed (Tasks 1–2): 2026-06-16*
