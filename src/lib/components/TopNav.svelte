@@ -123,8 +123,11 @@
   <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
     <a href={base || '/'} class="text-sm font-bold uppercase tracking-widest">Michelle Ngo</a>
 
-    <!-- Desktop links (≥sm) -->
-    <ul class="hidden sm:flex items-center gap-4 text-xs uppercase tracking-wider">
+    <!-- Desktop links (≥lg). The 8 full category names + About/Press/Contact
+         only fit on one line at lg (1024px); revealing them at sm (640px) made
+         the nav <ul> overflow the page horizontally at 768px (QUAL-03 break).
+         Below lg the hamburger drives the MobileMenu instead. -->
+    <ul class="hidden lg:flex items-center gap-4 text-xs uppercase tracking-wider">
       {#each categories as category (category)}
         {@const slug = categoryToSlug(category)}
         {@const href =
@@ -148,10 +151,10 @@
       </li>
     </ul>
 
-    <!-- Hamburger (<sm) -->
+    <!-- Hamburger (<lg) -->
     <button
       type="button"
-      class="sm:hidden p-2 -mr-2"
+      class="lg:hidden p-2 -mr-2"
       aria-label="Open menu"
       onclick={() => (mobileOpen = true)}
     >

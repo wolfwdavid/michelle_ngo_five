@@ -47,6 +47,12 @@
   function onkeydown(event: KeyboardEvent) {
     if (event.key === 'Escape') {
       event.preventDefault();
+      // Restore focus to the trigger SYNCHRONOUSLY, while the dialog is still
+      // mounted. WebKit (the apex cutover's primary engine) drops a .focus()
+      // issued from the effect-cleanup tick that unmounts the dialog, leaving
+      // activeElement on <body>. Focusing here — before onclose() unmounts us —
+      // lands reliably across Chromium/Firefox/WebKit (DSGN-04 / QUAL-03).
+      previouslyFocused?.focus?.();
       onclose();
       return;
     }
@@ -82,7 +88,13 @@
     items[0]?.focus();
 
     return () => {
-      previouslyFocused?.focus?.();
+      // Return focus to the trigger. WebKit (the apex cutover's primary engine)
+      // drops a .focus() call made during the same teardown tick that removes
+      // this dialog from the DOM — activeElement falls back to <body>. Deferring
+      // to the next frame lets the removal settle so the focus actually lands on
+      // the hamburger (keyboard return-focus contract, DSGN-04 / QUAL-03).
+      const target = previouslyFocused;
+      requestAnimationFrame(() => target?.focus?.());
     };
   });
 </script>
