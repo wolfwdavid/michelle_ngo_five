@@ -12,6 +12,11 @@ node_modules
 /build
 /package
 
+# E2E / a11y / perf artifacts
+test-results
+playwright-report
+.lighthouseci
+
 # OS
 .DS_Store
 Thumbs.db

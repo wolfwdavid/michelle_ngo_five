@@ -47,6 +47,9 @@
       </a>
     </p>
   {/if}
+  <!-- Visually-hidden section heading so card <h3>s nest under it (avoids the
+       h1→h3 skip axe heading-order flags, QUAL-01). -->
+  <h2 class="sr-only">{data.category} videos</h2>
   <ul class="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4">
     {#each data.videos as video, i (video.id)}
       <VideoCard {video} eager={i < 8} />

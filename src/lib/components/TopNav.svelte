@@ -141,7 +141,7 @@
           </a>
         </li>
       {/each}
-      <li class="ml-2 flex gap-3 text-neutral-500">
+      <li class="ml-2 flex gap-3 text-neutral-400">
         <a href={`${base}/about`} class="hover:text-white">About</a>
         <a href={`${base}/press`} class="hover:text-white">Press</a>
         <a href={`${base}/contact`} class="hover:text-white">Contact</a>

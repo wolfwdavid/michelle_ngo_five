@@ -17,6 +17,7 @@
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "test:data": "vitest run src/lib/data/",
+    "test:e2e": "playwright test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "prepare": "husky"
@@ -31,7 +32,9 @@
     ]
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.11.3",
     "@eslint/js": "9.39.4",
+    "@playwright/test": "1.60.0",
     "@sveltejs/adapter-static": "3.0.10",
     "@sveltejs/kit": "2.59.1",
     "@sveltejs/vite-plugin-svelte": "7.1.2",

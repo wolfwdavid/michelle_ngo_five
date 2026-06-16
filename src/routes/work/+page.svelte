@@ -28,6 +28,13 @@
 </svelte:head>
 
 <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+  <!--
+    Visually-hidden page <h1>: the design intentionally shows no heading (YouTube
+    density), but every page needs an h1 for the document outline (axe
+    page-has-heading-one, QUAL-01) and to anchor the card <h2>s below it.
+  -->
+  <h1 class="sr-only">All work</h1>
+  <h2 class="sr-only">All 56 videos</h2>
   <ul class="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4">
     {#each data.videos as video, i (video.id)}
       <VideoCard {video} eager={i < 8} />

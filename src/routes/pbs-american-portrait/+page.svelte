@@ -53,7 +53,7 @@
     it's really lived. The show gives a glimpse into American life, and a chance for everyday
     Americans to be heard.
   </blockquote>
-  <p class="mt-2 text-xs text-neutral-500">Description from pbs.org/american-portrait</p>
+  <p class="mt-2 text-xs text-neutral-400">Description from pbs.org/american-portrait</p>
 
   <p class="mt-6">
     <a
@@ -67,10 +67,14 @@
   </p>
 
   <h2 class="mt-12 text-lg font-medium">Stories</h2>
+  <!--
+    VideoCard renders its OWN <li>; the per-card "See on PBS →" badge is passed
+    as its children snippet so it lands INSIDE that <li>. Wrapping VideoCard in a
+    second <li> here nested <li> inside <li> and failed axe's `list` rule (QUAL-01).
+  -->
   <ul class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4">
     {#each data.videos as video, i (video.id)}
-      <li>
-        <VideoCard {video} eager={i < 8} />
+      <VideoCard {video} eager={i < 8}>
         {#if pbsCollectionUrl(video.description ?? '')}
           <a
             href={pbsCollectionUrl(video.description ?? '') ?? ''}
@@ -81,7 +85,7 @@
             See on PBS →
           </a>
         {/if}
-      </li>
+      </VideoCard>
     {/each}
   </ul>
 </section>

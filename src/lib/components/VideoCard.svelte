@@ -29,12 +29,21 @@
   import type { Video } from '$lib/data';
   import CategoryTag from './CategoryTag.svelte';
 
+  import type { Snippet } from 'svelte';
+
   type Props = {
     video: Video;
     /** First 8 cards above the fold pass eager={true} (D-17). */
     eager?: boolean;
+    /**
+     * Optional extra content rendered INSIDE the card's own <li> (after the
+     * card link). Lets surfaces like the PBS landing attach a per-card badge
+     * (e.g. "See on PBS →") without wrapping VideoCard in a second <li> — which
+     * would nest <li> inside <li> and fail axe's `list` rule (QUAL-01).
+     */
+    children?: Snippet;
   };
-  let { video, eager = false }: Props = $props();
+  let { video, eager = false, children }: Props = $props();
 
   let loaded = $state(false);
 </script>
@@ -61,7 +70,10 @@
       <h3 class="line-clamp-2 text-sm font-medium md:text-base group-hover:underline">
         {video.title}
       </h3>
-      <p class="text-xs text-neutral-500">{video.uploader}</p>
+      <p class="text-xs text-neutral-400">{video.uploader}</p>
     </div>
   </a>
+  {#if children}
+    {@render children()}
+  {/if}
 </li>
