@@ -20,6 +20,7 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 - ✓ Content-complete: 56 watch pages (click-to-load facade, VideoObject JSON-LD), /work + 8 category grids, PBS flagship, About/Press/Contact — Phase 2
 - ✓ Site chrome (TopNav + Footer with mirrored nav, accessible mobile menu) — Phase 2
 - ✓ SEO: per-page canonical/title/meta/OG, Person JSON-LD, 70-URL sitemap, strict prerendering — Phase 2
+- ✓ Signature YouTube-style home: cinematic hero (eager LCP, double-gated 3D/parallax, PLAY REEL lightbox) + 8 accent category rails (peek, keyboard/SR, Prev/Next, zero home iframes) — Phase 3 (human-approved)
 
 ### Active
 
@@ -70,8 +71,8 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Dark-only cinematic theme | Fits film work + "think YouTube" + user's 3D-site inspiration | — Pending |
-| Homepage = horizontal category rails (YouTube home) | User's explicit ask; differentiates from v4 grid / v3 scroll-snap | — Pending |
+| Dark-only cinematic theme | Fits film work + "think YouTube" + user's 3D-site inspiration | ✓ Good (live, user-approved) |
+| Homepage = horizontal category rails (YouTube home) | User's explicit ask; differentiates from v4 grid / v3 scroll-snap | ✓ Good (live, user-approved) |
 | Reuse v4's 56-video dataset + posters | Validated, type-safe, fastest path to content-complete | — Pending |
 | Two deploy workflows (staging + apex michellengo.net) | Safe iteration on github.io, manual cutover to apex | — Pending |
 | SvelteKit 2 + Svelte 5 + Tailwind v4 + adapter-static | Proven across v3/v4; static is required for Pages | — Pending |
@@ -95,4 +96,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-14 after Phase 2 (content-complete: watch/browse/pages/SEO)*
+*Last updated: 2026-06-15 after Phase 3 (signature rails homepage + cinematic hero, user-approved)*
