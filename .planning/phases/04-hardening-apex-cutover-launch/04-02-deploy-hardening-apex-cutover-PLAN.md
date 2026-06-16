@@ -11,7 +11,7 @@ files_modified:
   - package.json
   - .planning/phases/04-hardening-apex-cutover-launch/CUTOVER.md
 autonomous: false
-requirements: [QUAL-02]
+requirements: [QUAL-01, QUAL-02, QUAL-03, QUAL-04]
 
 must_haves:
   truths:

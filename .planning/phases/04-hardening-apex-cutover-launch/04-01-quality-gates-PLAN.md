@@ -69,7 +69,7 @@ Output: A `tests/e2e/` suite (axe + responsive + reduced-motion), a `lighthouser
 @.planning/STATE.md
 @.planning/research/PITFALLS.md
 
-<!-- The proven Playwright + axe template lives in the sibling repo. Port it, don't reinvent. -->
+<!-- The proven Playwright + axe template lives in sibling michelle_ngo_three. Adapt it (don't reinvent), but apply the QUAL-01 gating policy below — not the sibling's blanket toEqual([]). -->
 Reference (sibling, proven): C:/Users/Mkaru/Documents/Hello_World/hugginface_profile/Websites/michelle_ngo_websites/michelle_ngo_three/playwright.config.ts
 Reference (sibling, proven): C:/Users/Mkaru/Documents/Hello_World/hugginface_profile/Websites/michelle_ngo_websites/michelle_ngo_three/tests/e2e/axe.spec.ts
 
@@ -121,10 +121,10 @@ Current package.json: pnpm@11.0.9, node>=22, vitest already present. NO @playwri
        - A fixed PORT constant (use 4187 to avoid colliding with sibling _three's 4183 and _four's 4173). `use.baseURL = `http://localhost:${PORT}``.
        - `webServer.command = `pnpm build && pnpm preview --port ${PORT}``, `port: PORT`, `reuseExistingServer: !process.env.CI`, `timeout: 180_000`. CRITICAL: do NOT set BASE_PATH in this command's env — the build must serve at root so `page.goto('/work')` resolves. (The `pnpm build` here also runs scripts/assert-home-no-iframe.mjs, which is fine.)
        - `projects`: chromium, webkit, firefox (all three — the cutover targets Safari).
-    4. Create `tests/e2e/axe.spec.ts` by porting the sibling spec verbatim, with these v5 specifics:
+    4. Create `tests/e2e/axe.spec.ts` by ADAPTING sibling michelle_ngo_three's axe spec (reuse its structure/route loop, but do NOT copy its blanket `expect(results.violations).toEqual([])` — apply the QUAL-01 gating policy below instead), with these v5 specifics:
        - `WCAG_TAGS = ['wcag2a','wcag2aa','wcag21a','wcag21aa','best-practice']`
        - ROUTES = the 8 paths listed in <interfaces> (home, work, work/pbs-american-portrait, watch/264677021, pbs-american-portrait, press, about, contact).
-       - For each route: `await page.goto(path)`, then `const results = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();` and assert ZERO serious/critical violations. Use `const blocking = results.violations.filter(v => v.impact === 'serious' || v.impact === 'critical'); expect(blocking).toEqual([]);` (QUAL-01 floor is "no serious violations" — moderate/minor are reported but not blocking). Print `results.violations` impact+id on failure for debuggability.
+       - For each route: `await page.goto(path)`, then `const results = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();`. GATING POLICY (QUAL-01 = "no SERIOUS violations on key pages"): HARD GATE on serious OR critical only — `const blocking = results.violations.filter(v => v.impact === 'serious' || v.impact === 'critical'); expect(blocking).toEqual([]);` (build-fails the run). SEPARATELY, log ALL moderate/minor violations: `const advisory = results.violations.filter(v => v.impact === 'moderate' || v.impact === 'minor'); if (advisory.length) console.warn('a11y advisory', path, advisory.map(v => ({ id: v.id, impact: v.impact })));`. The executor MUST then FIX the moderate violations at their source where reasonable, and for any moderate violation intentionally NOT fixed, document the carve-out inline in the spec with a per-rule comment (rule id + one-line justification). So: serious/critical → build-fail; moderate → fix-or-document; minor → advisory log. Always print `results.violations` impact+id on failure for debuggability.
     5. Add `test-results/`, `playwright-report/`, and `.lighthouseci/` to `.gitignore`.
     6. Run `pnpm exec playwright test tests/e2e/axe.spec.ts --project=chromium`. FIX every serious/critical violation it reports in the relevant source component (e.g. a missing aria-label on a rail region, a contrast miss on an accent token, a missing iframe title). Re-run until clean on chromium, then run the full 3-project pass.
   </action>
