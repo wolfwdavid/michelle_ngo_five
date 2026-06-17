@@ -50,7 +50,9 @@ The v1.0 build, content, and `CUTOVER.md` runbook already exist and are verified
   3. The production deploy workflow runs the same prerender-count guard as staging — a build that does not produce exactly 56 watch + 8 category pages fails CI before deploy
   4. On the home page the TopNav scroll-transparency activates because `ReelHero` emits a `#hero-sentinel` element (nav is transparent over the hero, solid after scroll)
   5. No shipped v1.0 UI surface changes behavior — these are gating/wiring/cosmetic-only edits
-**Plans**: TBD
+**Plans**: 2 plans (Wave 1, parallel)
+- [ ] 05-01-PLAN.md — Environment-gate noindex/robots.txt + document the indexing gate in CUTOVER.md (SEO-04)
+- [ ] 05-02-PLAN.md — Per-page og:title/og:url, prerender-count guard in the production workflow, ReelHero #hero-sentinel (SEO-05, DPLY-01, HERO-05)
 
 ### Phase 6: Apex DNS Cutover
 **Goal**: Flip michellengo.net from the prior WordPress site to the v5 build by executing the existing `CUTOVER.md` runbook — the base-`''` apex build served at the apex, CNAME preserved across deploys, HTTPS valid. Performed only after Phase 5 is verified, so the apex is indexable from the moment it goes live.
@@ -85,6 +87,6 @@ Within v1.1, ordering is a hard constraint: **Phase 5 (make-indexable + debt) mu
 | 2. Shared Components, Card Destinations & SEO | v1.0 | 4/4 | Complete | 2026-06-14 |
 | 3. Rails Homepage & Cinematic Hero | v1.0 | 3/3 | Complete | 2026-06-15 |
 | 4. Hardening, Apex Cutover & Launch | v1.0 | 2/2 | Complete (apex DNS flip deferred) | 2026-06-17 |
-| 5. Cutover Prep — Make Indexable & Clear SEO/Deploy Debt | v1.1 | 0/TBD | Not started | - |
+| 5. Cutover Prep — Make Indexable & Clear SEO/Deploy Debt | v1.1 | 0/2 | Not started | - |
 | 6. Apex DNS Cutover | v1.1 | 0/TBD | Not started | - |
 | 7. Launch Verification | v1.1 | 0/TBD | Not started | - |
