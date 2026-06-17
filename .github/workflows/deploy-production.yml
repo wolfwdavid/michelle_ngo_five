@@ -41,6 +41,9 @@ jobs:
           BASE_PATH: ''
         run: pnpm build
 
+      - name: Assert prerender route count
+        run: node scripts/assert-prerender-count.mjs
+
       - name: Verify CNAME in build artifact
         run: |
           test -f build/CNAME || (echo "build/CNAME missing — CNAME assertion not in artifact" && exit 1)
