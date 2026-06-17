@@ -12,10 +12,10 @@ v5 is a dark, cinematic, YouTube-style video portfolio for filmmaker Michelle Ng
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation, Data Reuse & Proven Deploy** - Base-path-safe scaffold, ported data layer, dark design tokens, reduced-motion util, and a green staging deploy
-- [ ] **Phase 2: Shared Components, Card Destinations & SEO** - Leaf components + chrome, watch/browse/PBS routes, static pages, and per-page SEO/JSON-LD — content-complete
-- [ ] **Phase 3: Rails Homepage & Cinematic Hero** - The signature horizontal category rails plus the motion-safe 3D/parallax reel hero
-- [ ] **Phase 4: Hardening, Apex Cutover & Launch** - Perf/a11y budgets verified on real devices, two-workflow deploy, and the apex CNAME cutover to michellengo.net
+- [x] **Phase 1: Foundation, Data Reuse & Proven Deploy** - Base-path-safe scaffold, ported data layer, dark design tokens, reduced-motion util, and a green staging deploy
+- [x] **Phase 2: Shared Components, Card Destinations & SEO** - Leaf components + chrome, watch/browse/PBS routes, static pages, and per-page SEO/JSON-LD — content-complete
+- [x] **Phase 3: Rails Homepage & Cinematic Hero** - The signature horizontal category rails plus the motion-safe 3D/parallax reel hero
+- [x] **Phase 4: Hardening, Apex Cutover & Launch** - Perf/a11y budgets verified on real devices, two-workflow deploy, and the apex CNAME cutover to michellengo.net (apex DNS flip deferred — site live on GitHub Pages)
 
 ## Phase Details
 
@@ -85,7 +85,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation, Data Reuse & Proven Deploy | 0/3 | Not started | - |
-| 2. Shared Components, Card Destinations & SEO | 0/4 | Not started | - |
-| 3. Rails Homepage & Cinematic Hero | 0/3 | Not started | - |
-| 4. Hardening, Apex Cutover & Launch | 0/TBD | Not started | - |
+| 1. Foundation, Data Reuse & Proven Deploy | 3/3 | Complete | 2026-06-14 |
+| 2. Shared Components, Card Destinations & SEO | 4/4 | Complete | 2026-06-14 |
+| 3. Rails Homepage & Cinematic Hero | 3/3 | Complete | 2026-06-15 |
+| 4. Hardening, Apex Cutover & Launch | 2/2 | Complete (apex DNS flip deferred) | 2026-06-16 |
