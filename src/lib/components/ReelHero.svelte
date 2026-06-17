@@ -136,6 +136,15 @@
       </svg>
     </span>
   </div>
+
+  <!--
+    HERO-05 sentinel: a 1px decorative marker pinned to the hero's BOTTOM edge.
+    TopNav observes it (getElementById('hero-sentinel'), threshold 0) to toggle
+    scroll-transparency — transparent while the hero is on screen, solid once the
+    user scrolls past it. Absolutely positioned + aria-hidden + no pointer events
+    so it changes no layout and no visible surface.
+  -->
+  <div id="hero-sentinel" aria-hidden="true"></div>
 </section>
 
 <ReelLightbox bind:open embed={embed} title={reelTitle} />
@@ -153,6 +162,16 @@
   .hero-scrim {
     position: absolute;
     inset: 0;
+  }
+
+  /* HERO-05: sentinel pinned to the hero's bottom edge (decorative, 1px). */
+  #hero-sentinel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
   }
   .hero-bg {
     width: 100%;
