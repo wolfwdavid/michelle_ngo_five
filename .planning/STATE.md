@@ -2,11 +2,11 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Production Cutover
-status: defining-requirements
-stopped_at: v1.1 started — defining requirements (Production Cutover)
+status: roadmap-complete
+stopped_at: v1.1 roadmap created (Phases 5–7) — ready to plan Phase 5
 last_updated: "2026-06-17T20:11:07.156Z"
 progress:
-  total_phases: 0
+  total_phases: 3
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -19,21 +19,31 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-17)
 
 **Core value:** Visitors can immediately see and play Michelle's video work, browsing it by category in a fast, dark, YouTube-like interface — premium feel, fast on mobile.
-**Current focus:** v1.1 Production Cutover — defining requirements. Take the verified v1.0 build live on michellengo.net (noindex gate → SEO/deploy debt → DNS flip → verify).
+**Current focus:** v1.1 Production Cutover — roadmap created (Phases 5–7). Take the verified v1.0 build live on michellengo.net: make-indexable + clear SEO/deploy debt (P5) → DNS flip (P6) → launch verification (P7).
 
 ## Current Position
 
-Milestone: v1.1 Production Cutover — defining requirements.
-Phase: Not started
+Milestone: v1.1 Production Cutover — roadmap complete.
+Phase: 5 (Cutover Prep — Make Indexable & Clear SEO/Deploy Debt) — not started
 Plan: —
-Status: Defining requirements
-Last activity: 2026-06-17 — Milestone v1.1 started
+Status: Roadmap created; ready to plan Phase 5
+Last activity: 2026-06-17 — v1.1 roadmap created (Phases 5–7, 7/7 requirements mapped)
+
+**v1.1 phase structure (continues numbering from v1.0's Phase 4):**
+
+| Phase | Goal | Requirements |
+|-------|------|--------------|
+| 5. Cutover Prep | Make apex indexable + clear SEO/deploy debt (verified on staging) | SEO-04, SEO-05, DPLY-01, HERO-05 |
+| 6. Apex DNS Cutover | Execute CUTOVER.md — flip michellengo.net to v5 base-'' build | DPLY-02 |
+| 7. Launch Verification | Confirm live apex indexable, renders, rails/watch works on real devices | LIVE-01, LIVE-02 |
+
+**Hard ordering:** Phase 5 must be verified before Phase 6 (DNS flip). Flipping while the apex is `noindex` would hide the live site from search. Phase 7 follows the flip.
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 0
+- Total plans completed: 0 (v1.1)
 - Average duration: — min
 - Total execution time: 0.0 hours
 
@@ -48,55 +58,22 @@ Last activity: 2026-06-17 — Milestone v1.1 started
 - Last 5 plans: —
 - Trend: —
 
-*Updated after each plan completion*
-| Phase 01 P01 | 6 | 3 tasks | 25 files |
-| Phase 01 P02 | 5 | 2 tasks | 12 files |
-| Phase 01 P03 | 4 | 2 tasks | 6 files |
-| Phase 02 P01 | 17 | 2 tasks | 13 files |
-| Phase 02 P02 | 14 | 2 tasks | 5 files |
-| Phase 02 P03 | 17 | 2 tasks | 11 files |
-| Phase 02 P04 | 36 | 2 tasks | 12 files |
-| Phase 03 P01 | 12min | 2 tasks | 2 files |
-| Phase 03 P02 | 20 | 3 tasks | 4 files |
-| Phase 03 P03 | 36 | 2 tasks | 10 files |
-| Phase 04 P01 | 92 | 2 tasks | 14 files |
+*Updated after each plan completion. v1.0 per-plan history archived with the milestone.*
 
 ## Accumulated Context
 
 ### Decisions
 
 Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
+Recent decisions affecting current work (v1.1 cutover):
 
-- Port-then-extend: ~90% of architecture is a verbatim port of shipped sibling michelle_ngo_four; only the rails homepage + hero is new.
-- CSS-first motion, zero animation library (no three.js/GSAP/carousel lib for v1) — cheapest and most LCP-safe path.
-- Facade pattern is non-negotiable: cards are poster `<img>` linking to /watch; exactly one live iframe, on the watch page only.
-- Base-path + deploy proven end-to-end in Phase 1 on a trivial page (cheapest place to catch Pitfalls 1/2).
-- Single shared reduced-motion utility (FND-06) built in Phase 1, before any animated feature.
-- [Phase 01]: Ported toolchain config verbatim from sibling michelle_ngo_four (lockfile included for --frozen-lockfile parity)
-- [Phase 01]: Placeholder home keeps a base-prefixed /work/ link as FND-02 proof; rel=external stops the strict prerenderer 404ing on a Phase-3 route
-- [Phase 01]: Data layer ported verbatim from michelle_ngo_four; build-time Zod validation re-enabled (validateVideosPlugin) so bad data fails pnpm build with a row-pointing error
-- [Phase 01]: Reduced-motion gate is zero-dependency (no runed); hand-rolled matchMedia gate is the single source all motion reads (FND-06)
-- [Phase 01]: Dark token system made explicit as CSS custom props (canvas/ink/focus/scrim/type) extending the verbatim port; focus ring pairs light outline + dark halo for over-thumbnail contrast
-- [Phase 02]: Hardened MobileMenu a11y: role=dialog + focus trap + Escape + return-focus (DSGN-04 floor)
-- [Phase 02]: Scoped prerender handleHttpError over rel=external so chrome links keep SPA preload once Wave-2 routes ship
-- [Phase 02]: Site chrome (TopNav+Footer) mounted in +layout.svelte; all internal hrefs base-safe, no leading-slash
-- [Phase 02]: WATCH-02 facade: watch page mounts ZERO live iframes until play-click (0 of 56 prerendered HTML contain <iframe>); replaces v4's eager iframe
-- [Phase 02]: VideoObject JSON-LD description falls back to title on EMPTY string (|| not ??) so descriptionless videos still emit valid SEO
-- [Phase 02]: Browse surfaces (/work, /work/[category]×8 via entries(), /pbs-american-portrait) ported from v4 onto v5 VideoCard; each emits an absolute production-host rel=canonical (SEO-01 browse surfaces)
-- [Phase 02]: Static pages (about/press/contact) ported from v4 onto v5 ContactBlock + dark tokens; about emits Person JSON-LD (SEO-02 half) mirroring ContactBlock sameAs literals
-- [Phase 02]: Prerendered /sitemap.xml emits 70 absolute-host URLs (6+8+56); scoped Wave-2 prerender tolerance removed and strict build re-verified exits 0
-- [Phase 03]: CategoryRail scroller stays a plain <ul> (no tabindex=0) — focusable <li><a> children give natural Tab order; avoids Safari double tab-stop
-- [Phase 03]: Rail snap is proximity (not the forced variant) + clamp(220px,70vw,300px) peek; Prev/Next page by clientWidth*0.85, gate-aware behavior
-- [Phase 03]: PLAY REEL is a real base-safe <a> to /watch/264677021/ that preventDefaults into a focus-trapped ReelLightbox; the reel iframe mounts only inside {#if open} so home leaks zero iframes until intent
-- [Phase 03]: Hero motion double-gated (class:motion + @media no-preference + @supports scroll()); decorative pointer-tilt on a gated window listener (not a static-element handler) with a jsdom/SSR matchMedia guard
-- [Phase 03]: Home: layout owns the single <main id=main> landmark + skip link; per-page <main> wrappers became <section> (strict prerender keeps skip-target on every route, no nested landmarks)
-- [Phase 03]: Zero-iframe home is CI-enforced: scripts/assert-home-no-iframe.mjs chained into pnpm build (8 rails render, build/index.html has 0 iframes)
-- [Phase 04]: [Phase 04]: axe gates serious/critical only (QUAL-01 floor); moderate fixed at source, minor advisory — no blanket toEqual([])
-- [Phase 04]: [Phase 04]: text-neutral-500 -> text-neutral-400 site-wide for AA on the near-black canvas (was 4.1:1, now ~7.5:1)
-- [Phase 04]: [Phase 04]: TopNav inline nav reveals at lg not sm (8 long category names overflowed the page at 768px); hamburger drives <lg
-- [Phase 04]: [Phase 04]: MobileMenu returns focus to trigger synchronously on Escape (WebKit drops effect-cleanup .focus())
-- [Phase 04]: [Phase 04]: home mobile Lighthouse passes LCP 2.05s / CLS 0 / perf 98 (budgets LCP<=3000ms, CLS<=0.1)
+- v1.1 is cutover-only: build, content, and `CUTOVER.md` runbook already exist from v1.0 — phases gate/wire/flip/verify, they do not build features.
+- 🔴 Central risk: `+layout.svelte` + `robots.txt` are unconditionally `noindex`/`Disallow: /` (correct for staging, fatal for apex). Must be environment-gated and verified BEFORE the DNS flip.
+- Phase ordering is a hard constraint: SEO-04 (gate) + SEO-05/DPLY-01/HERO-05 (debt) land and verify in Phase 5 → DPLY-02 (flip) in Phase 6 → LIVE-01/LIVE-02 (verify) in Phase 7.
+- Apex CNAME cutover is high-risk: validate CNAME preservation + base `''` + HTTPS per CUTOVER.md; CNAME must persist across re-deploys.
+- No shipped v1.0 UI surface may change behavior during cutover (P5 edits are gating/wiring/cosmetic only).
+
+v1.0 decisions remain in PROJECT.md Key Decisions and the v1.0 milestone archive.
 
 ### Pending Todos
 
@@ -108,12 +85,12 @@ None yet.
 
 [Issues that affect future work]
 
-- Phase 3 (rails + hero) is flagged for phase-level research (`/gsd:research-phase`): the 3D/parallax depth technique + mobile perf budget has no shipped sibling precedent (CSS scroll-driven animation has a Firefox caveat), and the rail a11y pattern (Safari focus, roving tabindex, SR semantics) needs a focused spec.
-- Apex CNAME cutover (Phase 4) is high-risk: validate CNAME preservation + base `''` + HTTPS on a throwaway target before the real DNS switch.
-- REQUIREMENTS.md header says "35 v1 requirements" but the actual count of v1 IDs is 41 (ENH-01..03 are v2). Roadmap maps all 41; header count should be corrected.
+- 🔴 Production `noindex` gate (SEO-04) is the gating blocker for the whole milestone — must be done and verified before Phase 6, or the live apex is invisible to search engines.
+- Apex DNS cutover (Phase 6) is irreversible-feeling and high-risk: verify CNAME preservation + base `''` + HTTPS before/at the switch; the apex currently still serves the prior WordPress site.
+- LIVE-02 (Phase 7) requires real iPhone + Android devices for the rails/watch flow — human-action verification gate.
 
 ## Session Continuity
 
-Last session: 2026-06-16T17:22:08.401Z
-Stopped at: Phase 04 launch-ready on GitHub Pages (all gates green, device QA approved); apex DNS cutover DEFERRED by user to a later date — resume via CUTOVER.md
+Last session: 2026-06-17T20:11:07.156Z
+Stopped at: v1.1 roadmap created (Phases 5–7, full 7/7 coverage). Ready to plan Phase 5 — resume via `/gsd:plan-phase 5`.
 Resume file: None

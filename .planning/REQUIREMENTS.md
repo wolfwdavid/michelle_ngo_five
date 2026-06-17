@@ -53,23 +53,25 @@ Explicitly excluded for v1.1. Documented to prevent scope creep.
 
 ## Traceability
 
-Which phases cover which requirements. Populated during roadmap creation.
+Which phases cover which requirements. v1.1 continues phase numbering from v1.0 (which ended at Phase 4).
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SEO-04 | TBD | Pending |
-| SEO-05 | TBD | Pending |
-| DPLY-01 | TBD | Pending |
-| DPLY-02 | TBD | Pending |
-| LIVE-01 | TBD | Pending |
-| LIVE-02 | TBD | Pending |
-| HERO-05 | TBD | Pending |
+| SEO-04 | Phase 5 | Pending |
+| SEO-05 | Phase 5 | Pending |
+| DPLY-01 | Phase 5 | Pending |
+| HERO-05 | Phase 5 | Pending |
+| DPLY-02 | Phase 6 | Pending |
+| LIVE-01 | Phase 7 | Pending |
+| LIVE-02 | Phase 7 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 7 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 7 ⚠️
+- Mapped to phases: 7 ✓
+- Unmapped: 0
+
+**Ordering constraint:** Phase 5 (SEO-04 make-indexable + SEO-05/DPLY-01/HERO-05 debt) must land and be verified BEFORE Phase 6 (DPLY-02 DNS flip). Flipping DNS while the apex is unconditionally `noindex` would hide the live site from search engines — the milestone's central risk. Phase 7 (LIVE-01/LIVE-02 verification) follows the flip.
 
 ---
 *Requirements defined: 2026-06-17*
-*Last updated: 2026-06-17 after v1.1 milestone definition*
+*Last updated: 2026-06-17 after v1.1 roadmap creation (Phases 5–7, full coverage)*
