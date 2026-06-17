@@ -8,6 +8,16 @@ A redesign of filmmaker **Michelle Ngo**'s portfolio site (currently michellengo
 
 Visitors can immediately see and play Michelle's video work, browsing it by category in a fast, dark, YouTube-like interface — and it must feel premium and load fast on mobile.
 
+## Current Milestone: v1.1 Production Cutover
+
+**Goal:** Take the verified v1.0 build live on the real domain — environment-gate indexing, clear the SEO/deploy debt, flip DNS to michellengo.net, and verify the live apex.
+
+**Target features:**
+- Environment-gated indexing — staging stays `noindex`/`Disallow`, the apex build is fully indexable (fixes the 🔴 cutover blocker)
+- SEO/deploy debt cleared — per-page `og:title`/`og:url`, prerender-count guard in the production workflow, `#hero-sentinel` for scroll-transparent nav
+- DNS cutover to michellengo.net — CNAME → apex, base-`''` build, HTTPS verified, `CUTOVER.md` executed
+- Post-launch verification — live apex is indexable, renders, and the rails/watch flow works on real devices
+
 ## Requirements
 
 ### Validated
@@ -26,16 +36,15 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 
 ### Active
 
-<!-- Hypotheses until shipped and validated. All v1.0 hypotheses shipped (see Validated). Next-milestone scope is defined via /gsd:new-milestone. -->
+<!-- Hypotheses until shipped and validated. v1.1 Production Cutover scope — defined via /gsd:new-milestone. Full REQ-IDs live in REQUIREMENTS.md. -->
 
-All v1.0 requirements shipped and moved to Validated. No active hypotheses until the next milestone is scoped.
+**v1.1 Production Cutover** — take the verified v1.0 build live on michellengo.net:
 
-**Carried debt to weigh into the next milestone** (from the v1.0 audit, `milestones/v1.0-MILESTONE-AUDIT.md`):
-
-- [ ] Apex DNS cutover to michellengo.net — deferred by user; CUTOVER.md is the ready runbook
-- [ ] 🔴 Before cutover: environment-gate the production `noindex`/`robots.txt` (currently unconditional — would hide the live apex from search engines) and add the step to CUTOVER.md
+- [ ] 🔴 Environment-gate the production `noindex`/`robots.txt` (currently unconditional — would hide the live apex from search engines) and add the step to CUTOVER.md
 - [ ] Wire the prerender-count guard into the production deploy workflow (staging parity)
 - [ ] Emit `og:title`/`og:url` per page; emit `#hero-sentinel` so TopNav scroll-transparency activates (cosmetic)
+- [ ] Apex DNS cutover to michellengo.net — execute CUTOVER.md (CNAME → apex, base-`''`, HTTPS)
+- [ ] Post-launch verification — live apex indexable, renders, rails/watch flow works on real devices
 
 ### Out of Scope
 
@@ -99,4 +108,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-17 after v1.0 milestone (Cinematic Rails Portfolio — shipped on GitHub Pages; apex DNS cutover deferred)*
+*Last updated: 2026-06-17 after starting milestone v1.1 (Production Cutover — take the verified v1.0 build live on michellengo.net)*
