@@ -26,20 +26,16 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 
 ### Active
 
-<!-- Hypotheses until shipped and validated. -->
+<!-- Hypotheses until shipped and validated. All v1.0 hypotheses shipped (see Validated). Next-milestone scope is defined via /gsd:new-milestone. -->
 
-- [ ] Static SvelteKit site (Svelte 5 + Tailwind v4 + adapter-static) that prerenders cleanly for GitHub Pages
-- [ ] Dark cinematic design system with v4's OKLCH per-category accent colors
-- [ ] Homepage built as YouTube-style horizontal category rails (one rail per category), each scrollable, with accessible keyboard/touch controls
-- [ ] Full-bleed hero with the producer reel (Vimeo 264677021) and a PLAY REEL CTA, with tasteful 3D/depth/parallax (motion-safe gated)
-- [ ] Reuse the validated 56-video dataset from michelle_ngo_four (Vimeo + YouTube embeds, 8 categories) with build-time Zod validation
-- [ ] Per-video watch page (/watch/[id]) with lazy iframe embed, metadata, and same-category "more" rail
-- [ ] Category browse page (/work and /work/[category]) for grid/full browsing
-- [ ] PBS American Portrait flagship landing page (18 videos)
-- [ ] About page (approved bio + Person JSON-LD) and Press page (broadcast credits)
-- [ ] Contact surface (email mynogo@gmail.com, phone, Vimeo, socials)
-- [ ] Accessible (AA contrast, keyboard nav, reduced-motion support, semantic landmarks) and performant (good mobile LCP, peaked iframe budget)
-- [ ] Two GitHub Actions deploy workflows: auto staging at wolfwdavid.github.io/michelle_ngo_five/ + manual production build for michellengo.net (CNAME)
+All v1.0 requirements shipped and moved to Validated. No active hypotheses until the next milestone is scoped.
+
+**Carried debt to weigh into the next milestone** (from the v1.0 audit, `milestones/v1.0-MILESTONE-AUDIT.md`):
+
+- [ ] Apex DNS cutover to michellengo.net — deferred by user; CUTOVER.md is the ready runbook
+- [ ] 🔴 Before cutover: environment-gate the production `noindex`/`robots.txt` (currently unconditional — would hide the live apex from search engines) and add the step to CUTOVER.md
+- [ ] Wire the prerender-count guard into the production deploy workflow (staging parity)
+- [ ] Emit `og:title`/`og:url` per page; emit `#hero-sentinel` so TopNav scroll-transparency activates (cosmetic)
 
 ### Out of Scope
 
@@ -59,6 +55,8 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 - **Design inspiration from user:** a "Claude Design Builds Beautiful 3D Websites" tutorial — wants a premium, immersive, depth-and-motion feel.
 - **Skills to apply during UI work:** ui-ux-pro-max and the Anthropic frontend-design skill.
 
+**Current state (v1.0 shipped 2026-06-17):** ~5,218 src LOC (SvelteKit 2 / Svelte 5 / Tailwind v4 / adapter-static), 62 commits over 4 days. Live on GitHub Pages at https://wolfwdavid.github.io/michelle_ngo_five/ — all 41 requirements satisfied, 4/4 phases verified, mobile LCP 2.05s. The apex (michellengo.net) still serves the prior WordPress site; the cutover is deferred (CUTOVER.md ready, pending the production `noindex` fix).
+
 ## Constraints
 
 - **Tech stack**: SvelteKit 2 + Svelte 5 (runes) + Tailwind v4 + @sveltejs/adapter-static — matches sibling repos and is proven for this content.
@@ -75,10 +73,13 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 |----------|-----------|---------|
 | Dark-only cinematic theme | Fits film work + "think YouTube" + user's 3D-site inspiration | ✓ Good (live, user-approved) |
 | Homepage = horizontal category rails (YouTube home) | User's explicit ask; differentiates from v4 grid / v3 scroll-snap | ✓ Good (live, user-approved) |
-| Reuse v4's 56-video dataset + posters | Validated, type-safe, fastest path to content-complete | — Pending |
-| Two deploy workflows (staging + apex michellengo.net) | Safe iteration on github.io, manual cutover to apex | — Pending |
-| SvelteKit 2 + Svelte 5 + Tailwind v4 + adapter-static | Proven across v3/v4; static is required for Pages | — Pending |
-| Tasteful 3D/parallax, motion-safe gated | Premium feel without hurting a11y/perf | — Pending |
+| Reuse v4's 56-video dataset + posters | Validated, type-safe, fastest path to content-complete | ✓ Good (build-time Zod, shipped) |
+| Two deploy workflows (staging + apex michellengo.net) | Safe iteration on github.io, manual cutover to apex | ✓ Good (staging live; apex cutover deferred) |
+| SvelteKit 2 + Svelte 5 + Tailwind v4 + adapter-static | Proven across v3/v4; static is required for Pages | ✓ Good (clean prerender, ~5.2k LOC) |
+| Tasteful 3D/parallax, motion-safe gated | Premium feel without hurting a11y/perf | ✓ Good (double-gated; LCP 2.05s, reduced-motion audited) |
+| Facade pattern: zero home iframes, one live iframe on watch only | Protect mobile LCP/INP with many embeds | ✓ Good (build-enforced zero-iframe home) |
+| Single reduced-motion gate as the one motion source | Avoid scattered matchMedia checks; consistent a11y | ✓ Good (ReelHero + CategoryRail both read it) |
+| Defer apex DNS cutover; ship on GitHub Pages first | User chose to validate live before touching the production domain | — Pending (CUTOVER.md ready; noindex fix required first) |
 
 ## Evolution
 
@@ -98,4 +99,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-16 after Phase 4 (launch-readiness quality gates + deploy hardening; v1.0 milestone complete, live on GitHub Pages; apex DNS cutover deferred)*
+*Last updated: 2026-06-17 after v1.0 milestone (Cinematic Rails Portfolio — shipped on GitHub Pages; apex DNS cutover deferred)*

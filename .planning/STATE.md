@@ -1,10 +1,10 @@
 ---
 gsd_state_version: 1.0
 milestone: v1.0
-milestone_name: milestone
-status: unknown
-stopped_at: Phase 04 launch-ready on GitHub Pages (all gates green, device QA approved); apex DNS cutover DEFERRED by user to a later date — resume via CUTOVER.md
-last_updated: "2026-06-16T20:09:52.742Z"
+milestone_name: Cinematic Rails Portfolio
+status: milestone-complete
+stopped_at: v1.0 shipped (live on GitHub Pages, tagged); apex DNS cutover deferred (CUTOVER.md). Next: /gsd:new-milestone
+last_updated: "2026-06-17T20:11:07.156Z"
 progress:
   total_phases: 4
   completed_phases: 4
@@ -16,15 +16,16 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-06-14)
+See: .planning/PROJECT.md (updated 2026-06-17)
 
 **Core value:** Visitors can immediately see and play Michelle's video work, browsing it by category in a fast, dark, YouTube-like interface — premium feel, fast on mobile.
-**Current focus:** Phase 04 — hardening-apex-cutover-launch
+**Current focus:** v1.0 shipped — planning next milestone (`/gsd:new-milestone`). Open follow-up: apex DNS cutover (CUTOVER.md, blocked on the production `noindex` fix).
 
 ## Current Position
 
-Phase: 04
-Plan: Not started
+Milestone: v1.0 complete (4/4 phases). Awaiting next-milestone definition.
+Phase: —
+Plan: —
 
 ## Performance Metrics
 
