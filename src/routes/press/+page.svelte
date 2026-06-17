@@ -28,6 +28,9 @@
   />
   <!-- Absolute, production-host canonical (NOT base-relative — Pitfall 11). -->
   <link rel="canonical" href="https://michellengo.net/press/" />
+  <!-- Per-page Open Graph (SEO-05): og:title mirrors the page title; og:url mirrors the canonical. -->
+  <meta property="og:title" content="Press — Michelle Ngo" />
+  <meta property="og:url" content="https://michellengo.net/press/" />
 </svelte:head>
 
 <section class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">

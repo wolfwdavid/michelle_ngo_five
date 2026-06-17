@@ -33,6 +33,9 @@
   />
   <!-- Absolute, production-host canonical (NOT base-relative — Pitfall 11). -->
   <link rel="canonical" href="https://michellengo.net/pbs-american-portrait/" />
+  <!-- Per-page Open Graph (SEO-05): og:title mirrors the page title; og:url mirrors the canonical. -->
+  <meta property="og:title" content="PBS American Portrait — Michelle Ngo" />
+  <meta property="og:url" content="https://michellengo.net/pbs-american-portrait/" />
 </svelte:head>
 
 <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">

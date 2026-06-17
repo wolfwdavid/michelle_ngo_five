@@ -65,6 +65,9 @@
   />
   <!-- Absolute, production-host canonical (NOT base-relative — Pitfall 11). -->
   <link rel="canonical" href={`https://michellengo.net/watch/${video.id}/`} />
+  <!-- Per-page Open Graph (SEO-05): og:title mirrors the page title; og:url mirrors the canonical. -->
+  <meta property="og:title" content={`${video.title} — Michelle Ngo`} />
+  <meta property="og:url" content={`https://michellengo.net/watch/${video.id}/`} />
   <!-- SEO-02 VideoObject JSON-LD for Google video-rich-snippet eligibility.
        {@html} is safe here: videoJsonLd is JSON.stringify of a derived object
        whose values come from videos.json (build-time validated by Zod). No

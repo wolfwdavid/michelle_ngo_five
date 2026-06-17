@@ -29,6 +29,9 @@
   />
   <!-- Absolute, production-host canonical for `/` (NOT base-relative — Pitfall 11). -->
   <link rel="canonical" href="https://michellengo.net/" />
+  <!-- Per-page Open Graph (SEO-05): og:title mirrors the page title; og:url mirrors the canonical. -->
+  <meta property="og:title" content="Michelle Ngo — Filmmaker & Producer" />
+  <meta property="og:url" content="https://michellengo.net/" />
 </svelte:head>
 
 <ReelHero />

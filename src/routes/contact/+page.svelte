@@ -17,6 +17,9 @@
   <meta name="description" content="Reach Michelle Ngo by email or phone." />
   <!-- Absolute, production-host canonical (NOT base-relative — Pitfall 11). -->
   <link rel="canonical" href="https://michellengo.net/contact/" />
+  <!-- Per-page Open Graph (SEO-05): og:title mirrors the page title; og:url mirrors the canonical. -->
+  <meta property="og:title" content="Contact — Michelle Ngo" />
+  <meta property="og:url" content="https://michellengo.net/contact/" />
 </svelte:head>
 
 <section class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">

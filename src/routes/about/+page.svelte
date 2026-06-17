@@ -45,6 +45,9 @@
   />
   <!-- Absolute, production-host canonical (NOT base-relative — Pitfall 11). -->
   <link rel="canonical" href="https://michellengo.net/about/" />
+  <!-- Per-page Open Graph (SEO-05): og:title mirrors the page title; og:url mirrors the canonical. -->
+  <meta property="og:title" content="About — Michelle Ngo" />
+  <meta property="og:url" content="https://michellengo.net/about/" />
   <!-- Person JSON-LD for SEO knowledge-panel candidacy (SEO-02 half).
        {@html} is safe here: personJsonLd is JSON.stringify of a hardcoded
        static object literal — no user input flows in. -->
