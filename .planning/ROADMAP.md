@@ -51,7 +51,7 @@ The v1.0 build, content, and `CUTOVER.md` runbook already exist and are verified
   4. On the home page the TopNav scroll-transparency activates because `ReelHero` emits a `#hero-sentinel` element (nav is transparent over the hero, solid after scroll)
   5. No shipped v1.0 UI surface changes behavior — these are gating/wiring/cosmetic-only edits
 **Plans**: 2 plans (Wave 1, parallel)
-- [ ] 05-01-PLAN.md — Environment-gate noindex/robots.txt + document the indexing gate in CUTOVER.md (SEO-04)
+- [x] 05-01-PLAN.md — Environment-gate noindex/robots.txt + document the indexing gate in CUTOVER.md (SEO-04)
 - [x] 05-02-PLAN.md — Per-page og:title/og:url, prerender-count guard in the production workflow, ReelHero #hero-sentinel (SEO-05, DPLY-01, HERO-05)
 
 ### Phase 6: Apex DNS Cutover

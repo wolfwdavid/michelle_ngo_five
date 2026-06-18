@@ -11,7 +11,7 @@ Requirements for the production cutover. Each maps to a roadmap phase.
 
 ### Indexing & SEO
 
-- [ ] **SEO-04**: The production (apex) build is search-indexable — the `noindex` robots meta and `robots.txt Disallow: /` apply on the staging build only, gated by environment, so the live apex is crawlable
+- [x] **SEO-04**: The production (apex) build is search-indexable — the `noindex` robots meta and `robots.txt Disallow: /` apply on the staging build only, gated by environment, so the live apex is crawlable
 - [x] **SEO-05**: Every page emits `og:title` and `og:url` (completing the per-page Open Graph set begun in SEO-01)
 
 ### Deploy & Cutover
@@ -57,7 +57,7 @@ Which phases cover which requirements. v1.1 continues phase numbering from v1.0 
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SEO-04 | Phase 5 | Pending |
+| SEO-04 | Phase 5 | Complete |
 | SEO-05 | Phase 5 | Complete |
 | DPLY-01 | Phase 5 | Complete |
 | HERO-05 | Phase 5 | Complete |

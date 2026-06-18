@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Production Cutover
 status: unknown
-stopped_at: Completed 05-02-PLAN.md
-last_updated: "2026-06-18T00:00:25.975Z"
+stopped_at: Completed 05-01-PLAN.md (SEO-04 indexing gate)
+last_updated: "2026-06-18T00:07:42.705Z"
 progress:
   total_phases: 3
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
+  completed_plans: 2
 ---
 
 # Project State
@@ -47,6 +47,7 @@ Plan: 2 of 2
 
 *Updated after each plan completion. v1.0 per-plan history archived with the milestone.*
 | Phase 05 P02 | 4 | 3 tasks | 10 files |
+| Phase 05 P01 | 11 | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -65,6 +66,7 @@ v1.0 decisions remain in PROJECT.md Key Decisions and the v1.0 milestone archive
 
 - [Phase 05]: og:title/og:url mirror each page's title + canonical verbatim (single per-page source of truth, matches SEO-01)
 - [Phase 05]: #hero-sentinel is a 1px decorative div reusing TopNav's existing observer; TopNav untouched (zero v1.0 UI change)
+- [Phase 05]: SEO-04 gate keys off build-time process.env.BASE_PATH (via +layout.server.ts and the robots.txt +server.ts), NOT base from $app/paths — adapter-static relative paths make base resolve to '.' in both builds
 
 ### Pending Todos
 
@@ -82,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-18T00:00:09.566Z
-Stopped at: Completed 05-02-PLAN.md
+Last session: 2026-06-18T00:07:42.702Z
+Stopped at: Completed 05-01-PLAN.md (SEO-04 indexing gate)
 Resume file: None
