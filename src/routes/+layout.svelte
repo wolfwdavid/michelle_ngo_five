@@ -8,11 +8,21 @@
   import { base } from '$app/paths';
   import TopNav from '$lib/components/TopNav.svelte';
   import Footer from '$lib/components/Footer.svelte';
-  let { children } = $props();
+  let { children, data } = $props();
+
+  // The noindex gate keys off the build-time BASE_PATH env signal, surfaced by
+  // +layout.server.ts at prerender (via $env/dynamic/private). Apex builds with
+  // BASE_PATH='' -> isStaging=false (indexable). Staging builds with
+  // BASE_PATH=/michelle_ngo_five -> isStaging=true (stays noindex).
+  // NOTE: `base` from $app/paths is NOT usable here — adapter-static's relative
+  // paths make it resolve to '.' in BOTH builds, so it cannot distinguish them.
+  const isStaging = $derived(data.isStaging);
 </script>
 
 <svelte:head>
-  <meta name="robots" content="noindex, nofollow" />
+  {#if isStaging}
+    <meta name="robots" content="noindex, nofollow" />
+  {/if}
   <title>Michelle Ngo</title>
 
   <!-- Favicon set (multi-size for browser tabs + iOS + Android home-screen) -->

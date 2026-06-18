@@ -19,12 +19,16 @@ import Page from './+page.svelte';
 // `void | (... & Record<string, any>)`, which blocks direct property access.
 // Narrowing through a small helper preserves the real runtime shape while
 // keeping the static `import { load }` form.
+// `isStaging` is injected by the root +layout.server.ts (the SEO-04 indexing
+// gate) and merges into every page's `data`. The Page component's `data` prop
+// therefore requires it; the +page.ts `load` under test does not produce it, so
+// we add the apex default (false) here to satisfy the mounted prop shape.
 async function callLoad(
   event: Parameters<typeof load>[0]
-): Promise<{ video: Video; rail: Video[] }> {
+): Promise<{ video: Video; rail: Video[]; isStaging: boolean }> {
   const result = await load(event);
   if (!result) throw new Error('load() returned void');
-  return result as { video: Video; rail: Video[] };
+  return { ...(result as { video: Video; rail: Video[] }), isStaging: false };
 }
 
 describe('/watch/[id] +page.ts load — WATCH-01 (id route, narrowed load)', () => {
