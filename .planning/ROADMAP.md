@@ -52,7 +52,7 @@ The v1.0 build, content, and `CUTOVER.md` runbook already exist and are verified
   5. No shipped v1.0 UI surface changes behavior — these are gating/wiring/cosmetic-only edits
 **Plans**: 2 plans (Wave 1, parallel)
 - [ ] 05-01-PLAN.md — Environment-gate noindex/robots.txt + document the indexing gate in CUTOVER.md (SEO-04)
-- [ ] 05-02-PLAN.md — Per-page og:title/og:url, prerender-count guard in the production workflow, ReelHero #hero-sentinel (SEO-05, DPLY-01, HERO-05)
+- [x] 05-02-PLAN.md — Per-page og:title/og:url, prerender-count guard in the production workflow, ReelHero #hero-sentinel (SEO-05, DPLY-01, HERO-05)
 
 ### Phase 6: Apex DNS Cutover
 **Goal**: Flip michellengo.net from the prior WordPress site to the v5 build by executing the existing `CUTOVER.md` runbook — the base-`''` apex build served at the apex, CNAME preserved across deploys, HTTPS valid. Performed only after Phase 5 is verified, so the apex is indexable from the moment it goes live.

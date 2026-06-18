@@ -12,11 +12,11 @@ Requirements for the production cutover. Each maps to a roadmap phase.
 ### Indexing & SEO
 
 - [ ] **SEO-04**: The production (apex) build is search-indexable — the `noindex` robots meta and `robots.txt Disallow: /` apply on the staging build only, gated by environment, so the live apex is crawlable
-- [ ] **SEO-05**: Every page emits `og:title` and `og:url` (completing the per-page Open Graph set begun in SEO-01)
+- [x] **SEO-05**: Every page emits `og:title` and `og:url` (completing the per-page Open Graph set begun in SEO-01)
 
 ### Deploy & Cutover
 
-- [ ] **DPLY-01**: The prerender-count guard (56 watch + 8 category pages) runs in the production deploy workflow, matching the staging workflow
+- [x] **DPLY-01**: The prerender-count guard (56 watch + 8 category pages) runs in the production deploy workflow, matching the staging workflow
 - [ ] **DPLY-02**: DNS cutover to michellengo.net is executed per `CUTOVER.md` — CNAME preserved across deploys, base-`''` build served at the apex, HTTPS valid
 
 ### Launch Verification
@@ -26,7 +26,7 @@ Requirements for the production cutover. Each maps to a roadmap phase.
 
 ### Polish
 
-- [ ] **HERO-05**: ReelHero emits a `#hero-sentinel` element so the TopNav scroll-transparency behavior activates on the home page (cosmetic; deferred from v1.0)
+- [x] **HERO-05**: ReelHero emits a `#hero-sentinel` element so the TopNav scroll-transparency behavior activates on the home page (cosmetic; deferred from v1.0)
 
 ## Future Requirements
 
@@ -58,9 +58,9 @@ Which phases cover which requirements. v1.1 continues phase numbering from v1.0 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | SEO-04 | Phase 5 | Pending |
-| SEO-05 | Phase 5 | Pending |
-| DPLY-01 | Phase 5 | Pending |
-| HERO-05 | Phase 5 | Pending |
+| SEO-05 | Phase 5 | Complete |
+| DPLY-01 | Phase 5 | Complete |
+| HERO-05 | Phase 5 | Complete |
 | DPLY-02 | Phase 6 | Pending |
 | LIVE-01 | Phase 7 | Pending |
 | LIVE-02 | Phase 7 | Pending |
