@@ -33,6 +33,8 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 - ✓ Signature YouTube-style home: cinematic hero (eager LCP, double-gated 3D/parallax, PLAY REEL lightbox) + 8 accent category rails (peek, keyboard/SR, Prev/Next, zero home iframes) — Phase 3 (human-approved)
 - ✓ Launch-readiness quality gates (QUAL-01..04): axe a11y (24/24, zero serious/critical), mobile Lighthouse (LCP 2.05s / CLS 0 / perf 98), responsive 375–1440 + mobile nav, reduced-motion audit; real-device iPhone+Android QA approved — Phase 4
 - ✓ Deploy hardened for launch: both workflows on current action majors, prerender-count CI guard (56+8), verified base-'' apex build, CUTOVER.md runbook — Phase 4 (apex DNS flip deferred by user; site live on GitHub Pages)
+- ✓ Environment-gated indexing (SEO-04): apex build emits no `noindex` + `robots.txt` `Allow: /` + Sitemap; staging keeps `noindex`/`Disallow` — gated on build-time `BASE_PATH` via `+layout.server.ts`/`robots.txt/+server.ts` (fixes the 🔴 cutover blocker) — Phase 5
+- ✓ SEO/deploy debt cleared (SEO-05, DPLY-01, HERO-05): per-page `og:title`/`og:url` on all 8 heads, prerender-count guard in the production workflow, `#hero-sentinel` for scroll-transparent nav — Phase 5
 
 ### Active
 
@@ -40,9 +42,9 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 
 **v1.1 Production Cutover** — take the verified v1.0 build live on michellengo.net:
 
-- [ ] 🔴 Environment-gate the production `noindex`/`robots.txt` (currently unconditional — would hide the live apex from search engines) and add the step to CUTOVER.md
-- [ ] Wire the prerender-count guard into the production deploy workflow (staging parity)
-- [ ] Emit `og:title`/`og:url` per page; emit `#hero-sentinel` so TopNav scroll-transparency activates (cosmetic)
+- [x] 🔴 Environment-gate the production `noindex`/`robots.txt` (currently unconditional — would hide the live apex from search engines) and add the step to CUTOVER.md — Phase 5
+- [x] Wire the prerender-count guard into the production deploy workflow (staging parity) — Phase 5
+- [x] Emit `og:title`/`og:url` per page; emit `#hero-sentinel` so TopNav scroll-transparency activates (cosmetic) — Phase 5
 - [ ] Apex DNS cutover to michellengo.net — execute CUTOVER.md (CNAME → apex, base-`''`, HTTPS)
 - [ ] Post-launch verification — live apex indexable, renders, rails/watch flow works on real devices
 
@@ -64,7 +66,7 @@ Visitors can immediately see and play Michelle's video work, browsing it by cate
 - **Design inspiration from user:** a "Claude Design Builds Beautiful 3D Websites" tutorial — wants a premium, immersive, depth-and-motion feel.
 - **Skills to apply during UI work:** ui-ux-pro-max and the Anthropic frontend-design skill.
 
-**Current state (v1.0 shipped 2026-06-17):** ~5,218 src LOC (SvelteKit 2 / Svelte 5 / Tailwind v4 / adapter-static), 62 commits over 4 days. Live on GitHub Pages at https://wolfwdavid.github.io/michelle_ngo_five/ — all 41 requirements satisfied, 4/4 phases verified, mobile LCP 2.05s. The apex (michellengo.net) still serves the prior WordPress site; the cutover is deferred (CUTOVER.md ready, pending the production `noindex` fix).
+**Current state (v1.0 shipped 2026-06-17):** ~5,218 src LOC (SvelteKit 2 / Svelte 5 / Tailwind v4 / adapter-static), live on GitHub Pages at https://wolfwdavid.github.io/michelle_ngo_five/ — all v1.0 requirements satisfied, 4/4 phases verified, mobile LCP 2.05s. **v1.1 Phase 5 complete (2026-06-18):** the apex build is now fully indexable (env-gated `noindex`/`robots.txt`), the production deploy workflow has the prerender-count guard, and the SEO/`#hero-sentinel` debt is cleared — the cutover is now unblocked. The apex (michellengo.net) still serves the prior WordPress site; only the DNS cutover (Phase 6) and post-launch verification remain.
 
 ## Constraints
 
@@ -108,4 +110,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-17 after starting milestone v1.1 (Production Cutover — take the verified v1.0 build live on michellengo.net)*
+*Last updated: 2026-06-18 after Phase 5 (Cutover Prep) — apex made indexable, SEO/deploy debt cleared; cutover unblocked, DNS flip (Phase 6) remains*
