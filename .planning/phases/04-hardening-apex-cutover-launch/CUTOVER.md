@@ -26,6 +26,7 @@ These are complete and committed before you touch the registrar:
   - root-relative assets (no `/michelle_ngo_five/` prefix in `build/index.html`),
   - `build/sitemap.xml` on the apex host (`https://michellengo.net/...`),
   - full prerender count (56 watch + 8 category + all static pages).
+- **Indexing gate (SEO-04):** noindex meta + robots.txt are environment-gated on BASE_PATH — staging stays blocked, the apex build is crawlable (verified on staging before cutover).
 
 The production workflow `Deploy to GitHub Pages (production / apex)` builds with `BASE_PATH=''` and
 verifies `build/CNAME` before upload.
@@ -101,8 +102,12 @@ Run these checks; all must pass before declaring the cutover done:
 4. **HTTP → HTTPS redirect:** `http://michellengo.net/` redirects to `https://michellengo.net/`.
 5. **Share preview renders:** paste a watch link (e.g. `https://michellengo.net/watch/264677021`)
    into a social sharing/OG debugger and confirm the title + OG image render.
+6. **Indexing gate took effect (SEO-04):** the production (apex) build is crawlable.
+   - `curl -s https://michellengo.net/robots.txt` shows `User-agent: *` + `Allow: /` + `Sitemap: https://michellengo.net/sitemap.xml` (NOT `Disallow: /`).
+   - `curl -s https://michellengo.net/ | grep -i noindex` returns NOTHING (the home page carries no `noindex` robots meta).
+   If either still shows the staging block (`Disallow: /` or a `noindex` meta), the apex was built with the wrong `BASE_PATH` — confirm the production workflow built with `BASE_PATH=''` and re-run it.
 
-When all five pass, **reply "live"** to resume — or describe the failure (registrar + symptom)
+When all six pass, **reply "live"** to resume — or describe the failure (registrar + symptom)
 and consult the troubleshooting table below.
 
 ---
