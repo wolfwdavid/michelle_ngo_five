@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Production Cutover
-status: unknown
-stopped_at: Phase 6 context gathered
-last_updated: "2026-06-19T15:23:45.351Z"
+status: paused
+stopped_at: "Phase 6 paused by user — apex DNS cutover deferred; staying on github.io for now (no live DNS changes made)"
+last_updated: "2026-06-19T18:02:55.078Z"
 progress:
   total_phases: 3
   completed_phases: 1
-  total_plans: 2
+  total_plans: 4
   completed_plans: 2
 ---
 
@@ -19,12 +19,31 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-17)
 
 **Core value:** Visitors can immediately see and play Michelle's video work, browsing it by category in a fast, dark, YouTube-like interface — premium feel, fast on mobile.
-**Current focus:** Phase 05 — cutover-prep-make-indexable-clear-seo-deploy-debt
+**Current focus:** Phase 06 — apex-dns-cutover
 
 ## Current Position
 
-Phase: 6
-Plan: Not started
+Phase: 06 (apex-dns-cutover) — PAUSED (apex cutover deferred by user)
+Plan: 06-01 not started (pre-flight done; no live DNS changes made)
+
+**Pause note (2026-06-19):** User chose to keep serving from the staging URL
+`wolfwdavid.github.io/michelle_ngo_five/` for now and hold off on the live
+`michellengo.net` apex DNS cutover. No WordPress.com DNS edits, no custom-domain
+registration, no HTTPS toggle were performed — the live apex still serves the prior
+WordPress site untouched. Phase 6 NOT verified/completed (its goal requires the live
+cutover that was deliberately deferred).
+
+**Pre-flight completed (resume-ready, all green):**
+- Local `BASE_PATH='' pnpm build` → 56 watch + 8 category + all static pages (assert PASS)
+- `build/CNAME` = michellengo.net; 0 base-prefix leaks; `robots.txt` crawlable (Allow: /);
+  no noindex; `404.html` present; `/watch/264677021` prerendered.
+- DNS baseline (via 8.8.8.8): apex A = 192.0.78.172 / 192.0.78.249 (WordPress);
+  AAAA none; MX none; TXT = `v=spf1 a mx include:websitewelcome.com include:_spf.wpcloud.com ~all`;
+  CAA none (Let's Encrypt not blocked); NS = ns1/2/3.wordpress.com.
+- Helper `scripts/dns-check.mjs` added (Node-based DNS verifier; dig/nslookup/PowerShell
+  unavailable in this env) — reuse it to verify resolution when the cutover resumes.
+
+**To resume:** re-run `/gsd:execute-phase 6` and follow 06-01 → 06-02 human-action steps.
 
 ## Performance Metrics
 
