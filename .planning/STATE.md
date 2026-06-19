@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Production Cutover
 status: paused
-stopped_at: "Phase 6 paused by user — apex DNS cutover deferred; staying on github.io for now (no live DNS changes made)"
+stopped_at: "Phase 6 paused again — user kept site on github.io; production deploy was dispatched then rolled back to staging; apex DNS never flipped"
 last_updated: "2026-06-19T18:02:55.078Z"
 progress:
   total_phases: 3
@@ -23,15 +23,24 @@ See: .planning/PROJECT.md (updated 2026-06-17)
 
 ## Current Position
 
-Phase: 06 (apex-dns-cutover) — PAUSED (apex cutover deferred by user)
-Plan: 06-01 not started (pre-flight done; no live DNS changes made)
+Phase: 06 (apex-dns-cutover) — PAUSED (apex cutover deferred by user, 2nd time)
+Plan: 06-01 partially actioned then stood down (apex DNS NEVER flipped)
 
-**Pause note (2026-06-19):** User chose to keep serving from the staging URL
-`wolfwdavid.github.io/michelle_ngo_five/` for now and hold off on the live
-`michellengo.net` apex DNS cutover. No WordPress.com DNS edits, no custom-domain
-registration, no HTTPS toggle were performed — the live apex still serves the prior
-WordPress site untouched. Phase 6 NOT verified/completed (its goal requires the live
-cutover that was deliberately deferred).
+**Pause note (2026-06-19, resumed-then-paused):** User resumed the cutover, completed
+06-01 Task 1 (WP.com primary site address moved to a *.wordpress.com address — admin
+preserved), and authorized 06-01 Task 2. I dispatched the production apex deploy
+(`deploy-production.yml`, run 27845365645 — GREEN, base-'' artifact published, CNAME
+verified). User then chose to stay on github.io. Because both workflows publish to the
+SAME Pages site, the production deploy had replaced the github.io artifact, so I
+re-ran the staging deploy (`deploy.yml`, run 27845960996 — GREEN) to restore it.
+**Confirmed restored:** `wolfwdavid.github.io/michelle_ngo_five/robots.txt` = `Disallow: /`
+(staging noindex gate live), assets load 200. **06-01 Task 3 (the DNS flip) was NEVER
+performed** — `michellengo.net` still points at WordPress (192.0.78.172/.249), MX/TXT/NS
+untouched. Phase 6 NOT verified/completed.
+
+⚠️ Resume caveat: the live `michellengo.net` admin URL may now be reachable only via the
+`*.wordpress.com` address (Task 1 moved the primary site address). The apex site itself is
+unaffected. Nothing else to undo.
 
 **Pre-flight completed (resume-ready, all green):**
 - Local `BASE_PATH='' pnpm build` → 56 watch + 8 category + all static pages (assert PASS)
