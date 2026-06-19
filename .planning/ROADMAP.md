@@ -62,7 +62,9 @@ The v1.0 build, content, and `CUTOVER.md` runbook already exist and are verified
   1. michellengo.net resolves to the v5 GitHub Pages site (not the prior WordPress site) over valid HTTPS with no certificate warnings
   2. The site served at the apex is the base-`''` production build (internal links/assets resolve at the root, not under `/michelle_ngo_five/`)
   3. The CNAME persists across a subsequent deploy (a re-deploy does not knock the custom domain off)
-**Plans**: TBD
+**Plans**: 2 plans (Wave 1 → Wave 2, sequential — human-action-gated cutover)
+- [ ] 06-01-PLAN.md — WP.com addendum (primary-site-address, NS, CAA), apex deploy, DNS flip to GitHub IPs (DPLY-02)
+- [ ] 06-02-PLAN.md — Pages custom-domain registration + Enforce HTTPS + the six cold-check done-gate + rollback (DPLY-02)
 
 ### Phase 7: Launch Verification
 **Goal**: Prove the live apex is correct and usable — search-indexable with correct robots/meta, every route renders, and the core rails-browse + watch (play) flow works on real mobile devices. This is the milestone's done-gate.
@@ -88,5 +90,5 @@ Within v1.1, ordering is a hard constraint: **Phase 5 (make-indexable + debt) mu
 | 3. Rails Homepage & Cinematic Hero | v1.0 | 3/3 | Complete | 2026-06-15 |
 | 4. Hardening, Apex Cutover & Launch | v1.0 | 2/2 | Complete (apex DNS flip deferred) | 2026-06-17 |
 | 5. Cutover Prep — Make Indexable & Clear SEO/Deploy Debt | v1.1 | 0/2 | Not started | - |
-| 6. Apex DNS Cutover | v1.1 | 0/TBD | Not started | - |
+| 6. Apex DNS Cutover | v1.1 | 0/2 | Not started | - |
 | 7. Launch Verification | v1.1 | 0/TBD | Not started | - |
